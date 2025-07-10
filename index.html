@@ -13,43 +13,17 @@
         body { font-family: 'Cairo', sans-serif; background-color: #f1f5f9; }
         .modal { transition: opacity 0.3s ease; }
         .modal-content { transition: transform 0.3s ease; }
-        .module-container, #login-screen, #main-menu-screen { display: none; } /* مخفي بشكل افتراضي */
-        .page { display: none; } /* الصفحات مخفية بشكل افتراضي */
-        .page.active { display: block; } /* الصفحة النشطة تظهر */
-        .layout-view { display: none; } /* عروض التخطيط مخفية بشكل افتراضي */
+        .module-container, #login-screen, #main-menu-screen { display: none; } /* Hidden by default */
+        .page { display: none; } /* Pages are hidden by default */
+        .page.active { display: block; } /* Active page is shown */
+        .layout-view { display: none; } /* Layout views are hidden by default */
         .layout-view.active { display: block; }
         .chart-container { position: relative; height: 350px; width: 100%; }
         .sidebar-link { display: flex; align-items: center; padding: 0.75rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s, color 0.2s; }
         .sidebar-link.active, .sidebar-link:hover { background-color: #14b8a6; color: white; }
         .sidebar-link svg { margin-left: 0.75rem; }
-        /* تم إضافة تأثيرات الـ hover للبطاقات الجديدة */
         .module-card, .zone-card, .column-card { transition: transform 0.2s, box-shadow 0.2s; }
         .module-card:hover, .zone-card:hover, .column-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
-        /* نمط خاص لبطاقات التقارير لجعلها أكثر تناسقًا مع البطاقات الأخرى */
-        .report-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .report-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-        .report-card-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 9999px; /* For full circle */
-            margin-bottom: 0.75rem;
-        }
         .shelf-column-container { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; }
         .shelf-column { display: flex; flex-direction: column; gap: 0.5rem; }
         .shelf { width: 5rem; height: 3rem; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.25rem; cursor: pointer; transition: all 0.2s; }
@@ -79,31 +53,7 @@
         <div class="text-center bg-white p-12 rounded-2xl shadow-xl max-w-lg w-full">
             <h1 class="text-3xl md:text-4xl font-bold text-teal-700 mb-4">منصة إدارة الأعمال</h1>
             <p class="text-slate-600 mb-8">يرجى تسجيل الدخول للوصول إلى أنظمة العمل المتكاملة.</p>
-
-            <!-- نموذج تسجيل الدخول بالبريد الإلكتروني وكلمة المرور -->
-            <form id="email-password-form" class="space-y-4 mb-6">
-                <div>
-                    <input type="email" id="login-email" placeholder="البريد الإلكتروني" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" required>
-                </div>
-                <div>
-                    <input type="password" id="login-password" placeholder="كلمة المرور" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500" required>
-                </div>
-                <button type="submit" id="email-login-button" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
-                    تسجيل الدخول
-                </button>
-                <button type="button" id="email-signup-button" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
-                    إنشاء حساب جديد
-                </button>
-            </form>
-
-            <div class="relative flex py-5 items-center">
-                <div class="flex-grow border-t border-slate-300"></div>
-                <span class="flex-shrink mx-4 text-slate-400">أو</span>
-                <div class="flex-grow border-t border-slate-300"></div>
-            </div>
-
-            <!-- زر تسجيل الدخول باستخدام جوجل -->
-            <button id="google-login-button" onclick="signInWithGoogle()" class="flex items-center justify-center w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
+            <button id="login-button" onclick="signInWithGoogle()" class="flex items-center justify-center w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold py-3 px-6 rounded-lg transition-colors shadow-sm">
                 <svg class="w-6 h-6 ml-3" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
                 تسجيل الدخول باستخدام جوجل
             </button>
@@ -158,104 +108,23 @@
             <main id="page-customers" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إدارة العملاء</h2><button onclick="openModal('addCompanyModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة عميل جديد</button></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">اسم العميل</th><th scope="col" class="px-6 py-3">المسؤول</th><th scope="col" class="px-6 py-3">العنوان</th><th scope="col" class="px-6 py-3">رقم الاتصال</th><th scope="col" class="px-6 py-3">عدد المواقع</th><th scope="col" class="px-6 py-3">إجمالي المنتجات</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="customers-table-body"></tbody></table></div></div></main>
             <main id="page-inventory" class="page"><div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"><h2 class="text-3xl font-bold text-slate-800">جدول المخزون</h2><div class="flex-grow flex justify-center"><input type="text" id="search-input" placeholder="ابحث عن صنف أو شركة..." class="w-full max-w-lg p-2 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"></div><div class="flex gap-2"><button onclick="openModal('addItemModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg">إضافة صنف</button><button onclick="openModal('importModal')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">استيراد من ملف</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th><th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th><th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">سعر الوحدة</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="inventory-table-body"></tbody></table></div></div></main>
             <main id="page-transactions" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">سجل الحركات المخزنية</h2><div class="flex gap-2"><button onclick="openModal('addTransactionModal')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">إضافة جديدة</button><button onclick="openModal('dispatchTransactionModal')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">صرف جديد</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th class="px-4 py-2">التاريخ</th><th class="px-4 py-2">نوع الحركة</th><th class="px-4 py-2">السبب</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">الصنف</th><th class="px-4 py-2">الكمية</th></tr></thead><tbody id="transactions-table-body"></tbody></table></div></div></main>
-            
-            <!-- PAGE: Reports (REVISED with Monthly Rate) -->
             <main id="page-reports" class="page">
                 <h2 class="text-3xl font-bold text-slate-800 mb-6">التقارير</h2>
-            
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Box 1: Storage Cost Calculator -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg h-fit">
-                        <h3 class="text-xl font-bold text-teal-700 mb-4">1. حساب تكاليف التخزين (فاتورة تقديرية)</h3>
-                        <div class="space-y-4">
-                            <div>
-                                <label for="billing-company" class="block mb-2 text-sm font-medium text-slate-900">اختر شركة:</label>
-                                <select id="billing-company" class="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5"></select>
-                            </div>
-                            <div>
-                                <label for="billing-start-date" class="block mb-2 text-sm font-medium text-slate-900">فترة الفاتورة:</label>
-                                <div class="flex items-center gap-2">
-                                    <input type="date" id="billing-start-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2" title="تاريخ البدء">
-                                    <span class="text-slate-500">إلى</span>
-                                    <input type="date" id="billing-end-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2" title="تاريخ الانتهاء">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="storage-rate" class="block mb-2 text-sm font-medium text-slate-900">سعر تخزين الموقع (ر.س / للشهر):</label>
-                                <input type="number" id="storage-rate" value="45" class="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5" placeholder="مثال: 45">
-                            </div>
-                            <button onclick="calculateBilling()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">إصدار فاتورة تقديرية</button>
-                        </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div id="report-type-selection" class="flex justify-center gap-4 mb-6 border-b pb-6">
+                         <button onclick="showReportFilters('inventoryCount')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-6 rounded-lg">تقرير جرد المخزون</button>
+                        <button onclick="showReportFilters('storageCost')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-6 rounded-lg">تقرير تكلفة التخزين</button>
                     </div>
-            
-                    <!-- Box 2: Other Reports - تم التعديل هنا لإضافة أيقونات وبطاقات للتقارير -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg space-y-6">
-                        <h3 class="text-xl font-bold text-teal-700 mb-6">2. تقارير المخزون والحركات</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <!-- بطاقة تقرير المخزون الحالي -->
-                            <div onclick="generateInventoryReport()" class="report-card bg-slate-50 hover:bg-slate-100 cursor-pointer">
-                                <div class="report-card-icon bg-sky-100 text-sky-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-lg font-bold text-slate-800">تقرير المخزون الحالي</h4>
-                                <p class="text-slate-500 text-sm mt-1">عرض تفاصيل الأصناف المتوفرة.</p>
-                            </div>
 
-                            <!-- بطاقة تقرير حركات المخزون -->
-                            <div class="report-card bg-slate-50 hover:bg-slate-100 transition-all">
-                                <div class="report-card-icon bg-sky-100 text-sky-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m-15.356-2a8.001 8.001 0 0115.356-2m0 0H15" />
-                                    </svg>
-                                </div>
-                                <h4 class="text-lg font-bold text-slate-800">تقرير حركات المخزون</h4>
-                                <p class="text-slate-500 text-sm mt-1 mb-3">سجل الإضافات والصرف لفترة محددة.</p>
-                                <div class="space-y-2 w-full">
-                                    <div class="flex items-center gap-2">
-                                        <input type="date" id="report-start-date" class="bg-slate-100 border border-slate-300 text-sm rounded-lg block w-full p-2" title="تاريخ البدء">
-                                        <span class="text-slate-500">إلى</span>
-                                        <input type="date" id="report-end-date" class="bg-slate-100 border border-slate-300 text-sm rounded-lg block w-full p-2" title="تاريخ الانتهاء">
-                                    </div>
-                                    <button onclick="generateTransactionsReport()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg transition-colors mt-2">إنشاء التقرير</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="report-filters-container" class="hidden">
+                        <!-- Filters will be injected here by JS -->
                     </div>
-                </div>
-            
-                <!-- Area for showing billing result -->
-                <div id="billing-result" class="mt-8 hidden bg-white p-6 rounded-xl shadow-lg">
-                    <div id="invoice-header" class="flex justify-between items-center mb-4">
-                        <h3 class="font-bold text-lg">تفاصيل الفاتورة لـ <span id="billing-result-company" class="text-teal-600"></span></h3>
-                        <button onclick="printInvoice()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
-                            طباعة
-                        </button>
-                    </div>
-                    <div id="billing-details" class="mt-2 max-h-60 overflow-y-auto p-2 border rounded-md bg-slate-50"></div>
-                    <div class="mt-4 pt-4 border-t-2 border-teal-500 font-bold text-xl flex justify-between">
-                        <span>الإجمالي التقديري:</span>
-                        <span id="billing-total" class="text-teal-700"></span>
-                    </div>
-                </div>
-
-                <!-- Area for showing other reports -->
-                <div id="report-display" class="mt-8 hidden bg-white p-6 rounded-xl shadow-lg">
-                    <div class="flex justify-between items-center mb-4 border-b pb-2">
-                        <h3 id="report-display-title" class="text-xl font-bold text-slate-800"></h3>
-                        <div>
-                            <button onclick="printGeneratedReport()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-1 px-3 rounded-lg text-sm ml-2">طباعة</button>
-                            <button onclick="document.getElementById('report-display').classList.add('hidden')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-lg text-sm">إغلاق</button>
-                        </div>
-                    </div>
-                    <div id="report-display-content" class="max-h-[60vh] overflow-y-auto">
-                        <!-- Report table will be injected here -->
+    
+                    <div id="report-results-container" class="mt-6 hidden">
+                        <!-- Results will be injected here by JS -->
                     </div>
                 </div>
             </main>
-
             <main id="page-settings" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إعدادات المستودع</h2><button onclick="openModal('addZoneModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة منطقة جديدة</button></div><div id="warehouse-settings-container" class="bg-white p-6 rounded-xl shadow-lg"></div></main>
         </div>
     </div>
@@ -312,100 +181,11 @@
         </div>
     </div>
     
-    <!-- MODULE: Invoicing System (no change) -->
     <div id="invoicing-module-container" class="module-container p-8 w-full"><button onclick="showModule('main-menu-screen')" class="mb-8 text-sm text-blue-600 hover:underline"> &larr; العودة للقائمة الرئيسية</button><div class="text-center"><h1 class="text-4xl font-bold text-slate-800">نظام الفوترة</h1><p class="text-slate-500 mt-4">هذا النظام قيد التطوير.</p></div></div>
-    
-    <!-- MODULE: HR System - تم التعديل هنا -->
-    <div id="hr-module-container" class="module-container flex min-h-screen w-full">
-        <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
-            <h2 class="text-xl font-bold text-violet-700 text-center mb-4 mt-4">شؤون الموظفين</h2>
-            <button onclick="showModule('main-menu-screen')" class="mb-4 text-sm text-blue-600 hover:underline"> &larr; العودة للقائمة الرئيسية</button>
-            <nav class="flex-grow space-y-2">
-                <a href="#" onclick="showPage('page-employees', 'hr-module-container')" class="sidebar-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span>الموظفين</span>
-                </a>
-                <a href="#" onclick="showPage('page-leaves', 'hr-module-container')" class="sidebar-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span>الإجازات</span>
-                </a>
-                <a href="#" onclick="showPage('page-end-of-service', 'hr-module-container')" class="sidebar-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z" />
-                    </svg>
-                    <span>نهاية الخدمة</span>
-                </a>
-            </nav>
-        </aside>
-        <div class="flex-grow p-4 md:p-8 bg-slate-100">
-            <!-- PAGE: Employees -->
-            <main id="page-employees" class="page active">
-                <h2 class="text-3xl font-bold text-slate-800">إدارة الموظفين</h2>
-                <div class="bg-white p-6 rounded-xl shadow-lg mt-6">
-                    <p class="text-slate-500">هذا القسم مخصص لإدارة بيانات الموظفين.</p>
-                    <!-- هنا سيتم إضافة جدول الموظفين وأدوات الإدارة -->
-                </div>
-            </main>
-
-            <!-- PAGE: Leaves -->
-            <main id="page-leaves" class="page">
-                <h2 class="text-3xl font-bold text-slate-800">إدارة الإجازات</h2>
-                <div class="bg-white p-6 rounded-xl shadow-lg mt-6">
-                    <p class="text-slate-500">هذا القسم مخصص لتسجيل وإدارة إجازات الموظفين.</p>
-                    <!-- هنا سيتم إضافة جداول الإجازات والنماذج -->
-                </div>
-            </main>
-
-            <!-- PAGE: End of Service -->
-            <main id="page-end-of-service" class="page">
-                <h2 class="text-3xl font-bold text-slate-800">نهاية الخدمة</h2>
-                <div class="bg-white p-6 rounded-xl shadow-lg mt-6">
-                    <p class="text-slate-500">هذا القسم مخصص لإجراءات نهاية خدمة الموظفين.</p>
-                    <!-- هنا سيتم إضافة نماذج وإنهاء إجراءات الخدمة -->
-                </div>
-            </main>
-        </div>
-    </div>
+    <div id="hr-module-container" class="module-container p-8 w-full"><button onclick="showModule('main-menu-screen')" class="mb-8 text-sm text-blue-600 hover:underline"> &larr; العودة للقائمة الرئيسية</button><div class="text-center"><h1 class="text-4xl font-bold text-slate-800">نظام شؤون الموظفين</h1><p class="text-slate-500 mt-2">الرواتب، الإجازات، ونهاية الخدمة.</p></div></div>
 
     <!-- Modals -->
-    <div id="addCompanyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">إضافة عميل جديد</h3><form id="addCompanyForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="companyName" class="block mb-2 text-sm font-medium">اسم الشركة</label><input type="text" id="companyName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="companyContact" class="block mb-2 text-sm font-medium">اسم المسؤول</label><input type="text" id="companyContact" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div class="md:col-span-2"><label for="companyAddress" class="block mb-2 text-sm font-medium">العنوان</label><input type="text" id="companyAddress" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div><label for="companyPhone" class="block mb-2 text-sm font-medium">رقم الاتصال</label><input type="tel" id="companyPhone" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addCompanyModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
-    
-    <!-- Edit Company Modal -->
-    <div id="editCompanyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95">
-            <h3 class="text-xl font-bold mb-4">تعديل بيانات العميل</h3>
-            <form id="editCompanyForm">
-                <input type="hidden" id="editCompanyId">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="editCompanyName" class="block mb-2 text-sm font-medium">اسم الشركة</label>
-                        <input type="text" id="editCompanyName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required>
-                    </div>
-                    <div>
-                        <label for="editCompanyContact" class="block mb-2 text-sm font-medium">اسم المسؤول</label>
-                        <input type="text" id="editCompanyContact" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label for="editCompanyAddress" class="block mb-2 text-sm font-medium">العنوان</label>
-                        <input type="text" id="editCompanyAddress" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5">
-                    </div>
-                    <div>
-                        <label for="editCompanyPhone" class="block mb-2 text-sm font-medium">رقم الاتصال</label>
-                        <input type="tel" id="editCompanyPhone" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5">
-                    </div>
-                </div>
-                <div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse">
-                    <button type="button" onclick="closeModal('editCompanyModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button>
-                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ التعديلات</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
+    <div id="addCompanyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 id="companyModalTitle" class="text-xl font-bold mb-4">إضافة عميل جديد</h3><form id="addCompanyForm"><input type="hidden" id="editId"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="companyName" class="block mb-2 text-sm font-medium">اسم الشركة</label><input type="text" id="companyName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="companyContact" class="block mb-2 text-sm font-medium">اسم المسؤول</label><input type="text" id="companyContact" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div class="md:col-span-2"><label for="companyAddress" class="block mb-2 text-sm font-medium">العنوان</label><input type="text" id="companyAddress" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div><label for="companyPhone" class="block mb-2 text-sm font-medium">رقم الاتصال</label><input type="tel" id="companyPhone" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addCompanyModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
     <div id="addItemModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">تسكين صنف في موقع</h3><form id="addItemForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="itemLocation" class="block mb-2 text-sm font-medium">اختر الموقع</label><input type="text" list="locations-datalist" id="itemLocation" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemCompany" class="block mb-2 text-sm font-medium">الشركة</label><select id="itemCompany" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></select></div><div class="md:col-span-2"><label for="itemSKU" class="block mb-2 text-sm font-medium">SKU (رمز المنتج)</label><input type="text" id="itemSKU" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="itemName" class="block mb-2 text-sm font-medium">اسم الصنف</label><input type="text" id="itemName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemQuantity" class="block mb-2 text-sm font-medium">العدد</label><input type="number" id="itemQuantity" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemPrice" class="block mb-2 text-sm font-medium">سعر الوحدة (ر.س)</label><input type="number" id="itemPrice" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="entryDate" class="block mb-2 text-sm font-medium">تاريخ الإدخال</label><input type="date" id="entryDate" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addItemModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة</button></div></form></div></div>
     <div id="importModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-4xl p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">استيراد المنتجات من ملف</h3><div class="bg-white p-6 rounded-xl space-y-6"><div class="flex justify-between items-center"><div><h3 class="text-lg font-semibold mb-2">الخطوة 1: ارفع ملف CSV</h3><p class="text-sm text-slate-500 mb-2">يجب أن يحتوي الملف على الأعمدة التالية بالترتيب: SKU, اسم المنتج, اسم الشركة, الموقع, العدد, سعر الوحدة</p></div><button onclick="downloadExampleCSV()" class="bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-lg text-sm">تحميل ملف مثال</button></div><input type="file" id="import-file-input" accept=".csv" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"/></div><div id="import-preview-container" class="hidden mt-4"><div><h3 class="text-lg font-semibold mb-2">الخطوة 2: معاينة البيانات وتحديد تاريخ الاستلام</h3><label for="delivery-date" class="block mb-2 text-sm font-medium">تاريخ الاستلام لجميع الأصناف في الملف:</label><input type="date" id="delivery-date" class="p-2 border rounded-lg mb-4"></div><div class="max-h-96 overflow-y-auto border rounded-lg"><table class="w-full text-sm text-left"><thead class="text-xs text-slate-700 uppercase bg-slate-100 sticky top-0"><tr><th class="px-4 py-2">الحالة</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">اسم المنتج</th><th class="px-4 py-2">الشركة</th><th class="px-4 py-2">الموقع</th><th class="px-4 py-2">العدد</th><th class="px-4 py-2">السعر</th></tr></thead><tbody id="import-preview-body"></tbody></table></div><div class="mt-6"><h3 class="text-lg font-semibold mb-2">الخطوة 3: تأكيد الاستيراد</h3><button id="confirm-import-button" onclick="confirmImport()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">تأكيد الاستيراد (<span id="valid-rows-count">0</span>) أصناف صالحة</button></div></div><div class="mt-6 flex justify-end"><button type="button" onclick="closeModal('importModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إغلاق</button></div></div></div>
     
@@ -519,7 +299,7 @@
     <div id="shelf-tooltip" class="shelf-tooltip"></div>
     <div id="addZoneModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">إضافة / تعديل منطقة</h3><form id="addZoneForm"><input type="hidden" id="zone-edit-id"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="zone-id" class="block mb-2 text-sm font-medium">معرف المنطقة (حرف إنجليزي واحد)</label><input type="text" id="zone-id" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required maxlength="1"></div><div><label for="zone-name" class="block mb-2 text-sm font-medium">اسم المنطقة</label><input type="text" id="zone-name" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-columns" class="block mb-2 text-sm font-medium">عدد الأعمدة</label><input type="number" id="zone-columns" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-shelves" class="block mb-2 text-sm font-medium">عدد الرفوف لكل عمود</label><input type="number" id="zone-shelves" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addZoneModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
     <!-- Financial Modals -->
-    <div id="addRevenueModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-green-600">إضافة إيراد جديد</h3><form id="addRevenueForm"><div class="space-y-4"><div><label for="revenue-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="revenue-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="revenue-description" class="block mb-2 text-sm font-medium">بند الإيراد</label><input type="text" id="revenue-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: مبيعات منتج س"></div><div><label for="revenue-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="revenue-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="مبيعات">مبيعات</option><option value="خدمات">خدمات</option><option value="أخرى">أخرى</option></select></div><div><label for="revenue-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="revenue-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addRevenueModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">حفظ الإيراد</button></div></form></div></div>
+    <div id="addRevenueModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-green-600">إضافة إيراد جديد</h3><form id="addRevenueForm"><div class="space-y-4"><div><label for="revenue-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="revenue-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="revenue-description" class="block mb-2 text-sm font-medium">بند الإيراد</label><input type="text" id="revenue-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: مبيعات منتج س"></div><div><label for="revenue-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="revenue-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="مبيعات">مبيعات</option><option value="خدمات">خدمات</option><option value="أخرى">أخرى</option></select></div><div><label for="revenue-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="revenue-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addRevenueModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">حفظ الإيراد</button></div></form></div></div>
     <div id="addExpenseModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-red-600">إضافة مصروف جديد</h3><form id="addExpenseForm"><div class="space-y-4"><div><label for="expense-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="expense-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="expense-description" class="block mb-2 text-sm font-medium">بند المصروف</label><input type="text" id="expense-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: فاتورة كهرباء"></div><div><label for="expense-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="expense-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="رواتب">رواتب</option><option value="إيجار">إيجار</option><option value="فواتير">فواتير</option><option value="مشتريات">مشتريات</option><option value="تسويق">تسويق</option><option value="أخرى">أخرى</option></select></div><div><label for="expense-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="expense-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addExpenseModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">حفظ المصروف</button></div></form></div></div>
     <datalist id="sku-datalist"></datalist>
     <datalist id="locations-datalist"></datalist>
@@ -527,7 +307,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, addDoc, onSnapshot, writeBatch, deleteDoc, updateDoc, runTransaction, setDoc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         
         const firebaseConfig = { apiKey: "AIzaSyDSlxf95W00Ow6LZba8waAKJINptIRPkU8", authDomain: "sample-firebase-ai-app-960f4.firebaseapp.com", projectId: "sample-firebase-ai-app-960f4", storageBucket: "sample-firebase-ai-app-960f4.appspot.com", messagingSenderId: "741880884079", appId: "1:741880884079:web:8d2f6e233fb65e65e969a" };
@@ -552,18 +332,31 @@
             zonesView: document.getElementById('layout-zones-view'),
             zoneDetailView: document.getElementById('layout-zone-detail-view'),
             settingsContainer: document.getElementById('warehouse-settings-container'),
-            addZoneForm: document.getElementById('addZoneForm'),
-            // عناصر جديدة لدخول الايميل والباسوورد
-            loginEmailInput: document.getElementById('login-email'),
-            loginPasswordInput: document.getElementById('login-password'),
-            emailLoginForm: document.getElementById('email-password-form'),
-            emailLoginButton: document.getElementById('email-login-button'),
-            emailSignupButton: document.getElementById('email-signup-button')
+            addZoneForm: document.getElementById('addZoneForm')
         };
         
         window.openModal = (modalId, context = null) => {
             const modal = document.getElementById(modalId);
-            if (modalId === 'addItemModal') {
+            if (modalId === 'addCompanyModal') {
+                const form = document.getElementById('addCompanyForm');
+                const title = document.getElementById('companyModalTitle');
+                form.reset();
+                document.getElementById('editId').value = '';
+
+                if (context) { 
+                    const company = state.companies.find(c => c.id === context);
+                    if (company) {
+                        title.textContent = 'تعديل بيانات العميل';
+                        document.getElementById('editId').value = company.id;
+                        document.getElementById('companyName').value = company.name;
+                        document.getElementById('companyContact').value = company.contact || '';
+                        document.getElementById('companyAddress').value = company.address || '';
+                        document.getElementById('companyPhone').value = company.phone || '';
+                    }
+                } else {
+                    title.textContent = 'إضافة عميل جديد';
+                }
+            } else if (modalId === 'addItemModal') {
                 document.getElementById('addItemForm').reset();
                 document.getElementById('entryDate').valueAsDate = new Date();
                 const occupiedLocations = new Set(state.inventory.map(item => item.locationId));
@@ -644,8 +437,6 @@
                 showPage('page-layout', moduleId); 
             } else if (moduleId === 'financial-module-container') {
                 showPage('page-financial-dashboard', moduleId);
-            } else if (moduleId === 'hr-module-container') { /* تحديث: تحديد الصفحة الافتراضية لقسم شؤون الموظفين */
-                showPage('page-employees', moduleId); // عرض صفحة الموظفين افتراضياً
             }
         };
 
@@ -657,18 +448,6 @@
             module.querySelector(`.sidebar-link[onclick*="'${pageId}'"]`).classList.add('active');
             
             if (pageId === "page-layout") { renderLayoutView('zones'); }
-            
-            if (pageId === 'page-reports') {
-                document.getElementById('report-end-date').valueAsDate = new Date();
-                const oneMonthAgo = new Date();
-                oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
-                document.getElementById('report-start-date').valueAsDate = oneMonthAgo;
-
-                document.getElementById('billing-end-date').valueAsDate = new Date();
-                const firstDayOfMonth = new Date();
-                firstDayOfMonth.setDate(1);
-                document.getElementById('billing-start-date').valueAsDate = firstDayOfMonth;
-            }
         };
         
         function renderAll() { 
@@ -685,8 +464,6 @@
             renderFinancialDashboard();
             renderFinancialTransactionsPage();
             renderOrUpdateFinancialChart();
-            // ليس هناك حاجة لوظائف render خاصة بصفحات الموارد البشرية الجديدة في هذا التعديل
-            // لأنها تحتوي على محتوى ثابت مبدئيًا. إذا أضفت بيانات ديناميكية، فستحتاج إليها.
         }
         
         window.renderLayoutView = (view, context) => {
@@ -774,8 +551,8 @@
                     <td class="px-6 py-4">${locationCount}</td>
                     <td class="px-6 py-4">${quantityCount}</td>
                     <td class="px-6 py-4 text-center">
-                        <button onclick="openEditCompanyModal('${company.id}')" class="text-blue-600 hover:text-blue-800 font-bold px-2">تعديل</button>
-                        <button onclick="deleteCompany('${company.id}')" class="text-red-600 hover:text-red-800 font-bold px-2">حذف</button>
+                        <button onclick="openModal('addCompanyModal', '${company.id}')" class="text-blue-600 hover:underline">تعديل</button>
+                        <button onclick="deleteCompany('${company.id}')" class="text-red-600 hover:underline mr-4">حذف</button>
                     </td>
                 </tr>`
             }).join("")
@@ -787,15 +564,31 @@
             if (filteredInventory.length === 0) { tableBody.innerHTML = `<tr class="border-b"><td colspan="8" class="text-center p-4">${state.inventory.length === 0 ? "لا توجد أصناف في المخزن." : "لا توجد نتائج تطابق بحثك."}</td></tr>`; return }
             tableBody.innerHTML = filteredInventory.sort((a, b) => a.locationId.localeCompare(b.locationId) || a.sku.localeCompare(b.sku)).map(item => {
                 const company = state.companies.find(c => c.id === item.companyId);
-                return `<tr class="bg-white border-b hover:bg-slate-50"><td class="px-6 py-4 font-bold text-slate-900">${item.locationId}</td><td class="px-6 py-4">${item.sku || "N/A"}</td><td class="px-6 py-4">${item.name}</td><td class="px-6 py-4">${company ? company.name : "غير محدد"}</td><td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${Number(item.price).toLocaleString("ar-SA")} ر.س</td><td class="px-6 py-4">${item.entryDate}</td><td class="px-6 py-4 text-center"><button onclick="openDispatchModal('${item.id}')" class="bg-amber-500 text-white px-3 py-1 text-xs rounded-md hover:bg-amber-600">إخلاء الصنف</button></td></tr>`
+                return `<tr class="bg-white border-b hover:bg-slate-50"><td class="px-6 py-4 font-bold text-slate-900">${item.locationId}</td><td class="px-6 py-4">${item.sku || "N/A"}</td><td class="px-6 py-4">${item.name}</td><td class="px-6 py-4">${company ? company.name : "غير محدد"}</td><td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${Number(item.price).toLocaleString("ar-SA")} ر.س</td><td class="px-6 py-4">${new Date(item.entryDate).toLocaleDateString("ar-SA")}</td><td class="px-6 py-4 text-center"><button onclick="openDispatchModal('${item.id}')" class="bg-amber-500 text-white px-3 py-1 text-xs rounded-md hover:bg-amber-600">إخلاء الصنف</button></td></tr>`
             }).join("")
         }
         function renderTransactionsPage() {
             const tableBody = document.getElementById('transactions-table-body');
-            if (state.transactions.length === 0) { tableBody.innerHTML = '<tr><td colspan="6" class="text-center p-4">لا توجد حركات مسجلة.</td></tr>'; return }
+            if (state.transactions.length === 0) { tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4">لا توجد حركات مسجلة.</td></tr>'; return }
+            
+            const tableHead = document.querySelector('#page-transactions thead tr');
+            tableHead.innerHTML = `<th class="px-4 py-2">التاريخ</th><th class="px-4 py-2">نوع الحركة</th><th class="px-4 py-2">السبب</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">الصنف</th><th class="px-4 py-2">الكمية</th><th class="px-4 py-2 text-center">إجراءات</th>`;
+            
             tableBody.innerHTML = state.transactions.sort((a, b) => b.timestamp.toMillis() - a.timestamp.toMillis()).map(t => {
                 const isAdd = t.type === 'add';
-                return `<tr class="bg-white border-b"><td class="px-4 py-2 text-sm text-slate-500">${new Date(t.timestamp.toMillis()).toLocaleString("en-CA")}</td><td class="px-4 py-2 font-semibold ${isAdd ? "text-green-600" : "text-red-600"}">${isAdd ? "إضافة" : "صرف"}</td><td class="px-4 py-2">${t.reason}</td><td class="px-4 py-2">${t.itemSku}</td><td class="px-4 py-2">${t.itemName}</td><td class="px-4 py-2">${t.quantity}</td></tr>`
+                return `<tr class="bg-white border-b">
+                    <td class="px-4 py-2 text-sm text-slate-500">${new Date(t.timestamp.toMillis()).toLocaleString("ar-SA")}</td>
+                    <td class="px-4 py-2 font-semibold ${isAdd ? "text-green-600" : "text-red-600"}">${isAdd ? "إضافة" : "صرف"}</td>
+                    <td class="px-4 py-2">${t.reason}</td>
+                    <td class="px-4 py-2">${t.itemSku}</td>
+                    <td class="px-4 py-2">${t.itemName}</td>
+                    <td class="px-4 py-2">${t.quantity}</td>
+                    <td class="px-4 py-2 text-center">
+                        <button onclick="printTransaction('${t.id}')" title="طباعة الحركة" class="text-gray-500 hover:text-blue-600 p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" /></svg>
+                        </button>
+                    </td>
+                </tr>`
             }).join('')
         }
         function renderSettingsPage() {
@@ -855,7 +648,7 @@
             tableBody.innerHTML = state.financials.sort((a, b) => new Date(b.date) - new Date(a.date)).map(t => {
                 const isRevenue = t.type === 'revenue';
                 return `<tr class="bg-white border-b">
-                    <td class="px-4 py-2">${t.date}</td>
+                    <td class="px-4 py-2">${new Date(t.date).toLocaleDateString("ar-SA")}</td>
                     <td class="px-4 py-2 font-semibold ${isRevenue ? "text-green-600" : "text-red-600"}">${isRevenue ? "إيراد" : "مصروف"}</td>
                     <td class="px-4 py-2">${t.description}</td>
                     <td class="px-4 py-2">${t.category}</td>
@@ -884,6 +677,7 @@
             const uniqueSkus = [...new Set(state.inventory.map(item => item.sku))];
             skuDatalist.innerHTML = uniqueSkus.map(sku => `<option value="${sku}"></option>`).join('');
             
+            // For location datalists, we now show all possible locations, as the logic will handle occupied ones.
             locationsDatalist.innerHTML = Array.from(allLocations).sort().map(loc => `<option value="${loc}"></option>`).join('');
         }
         function renderOrUpdateInventoryChart() {
@@ -967,86 +761,7 @@
                 })
             } catch (e) { console.error("Firebase initialization error:", e) }
         }
-        
-        // ** وظائف جديدة لتسجيل الدخول وإنشاء حساب بالبريد الإلكتروني وكلمة المرور **
-        window.signInWithEmail = async (event) => {
-            event.preventDefault();
-            const email = ui.loginEmailInput.value.trim();
-            const password = ui.loginPasswordInput.value.trim();
-
-            if (!email || !password) {
-                showAlert("بيانات ناقصة", "الرجاء إدخال البريد الإلكتروني وكلمة المرور.");
-                return;
-            }
-
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                let errorMessage = "فشل تسجيل الدخول. يرجى التحقق من بريدك الإلكتروني وكلمة المرور.";
-                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                    errorMessage = "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "صيغة البريد الإلكتروني غير صحيحة.";
-                } else if (error.code === 'auth/too-many-requests') {
-                    errorMessage = "تم حظر هذا الحساب مؤقتًا بسبب محاولات تسجيل دخول فاشلة متعددة. حاول لاحقًا.";
-                }
-                showAlert("خطأ في تسجيل الدخول", errorMessage);
-                console.error("Email sign-in error:", error);
-            }
-        };
-
-        window.signUpWithEmail = async () => {
-            const email = ui.loginEmailInput.value.trim();
-            const password = ui.loginPasswordInput.value.trim();
-
-            if (!email || !password) {
-                showAlert("بيانات ناقصة", "الرجاء إدخال البريد الإلكتروني وكلمة المرور لإنشاء حساب.");
-                return;
-            }
-
-            if (password.length < 6) {
-                showAlert("كلمة مرور ضعيفة", "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.");
-                return;
-            }
-
-            try {
-                await createUserWithEmailAndPassword(auth, email, password);
-                showAlert("نجاح", "تم إنشاء حسابك بنجاح! يمكنك الآن تسجيل الدخول.");
-                // يمكن مسح حقول الإدخال أو ترك المستخدم ليسجل الدخول تلقائيا بعد الإنشاء
-                // ui.loginEmailInput.value = '';
-                // ui.loginPasswordInput.value = '';
-            } catch (error) {
-                let errorMessage = "فشل إنشاء الحساب. يرجى المحاولة مرة أخرى.";
-                if (error.code === 'auth/email-already-in-use') {
-                    errorMessage = "هذا البريد الإلكتروني مستخدم بالفعل. يرجى تسجيل الدخول أو استخدام بريد إلكتروني آخر.";
-                } else if (error.code === 'auth/invalid-email') {
-                    errorMessage = "صيغة البريد الإلكتروني غير صالحة.";
-                } else if (error.code === 'auth/weak-password') {
-                    errorMessage = "كلمة المرور ضعيفة جداً. يرجى استخدام كلمة مرور أقوى.";
-                }
-                showAlert("خطأ في إنشاء الحساب", errorMessage);
-                console.error("Email sign-up error:", error);
-            }
-        };
-
-
-        window.signInWithGoogle = async () => { 
-            const provider = new GoogleAuthProvider();
-            try { 
-                await signInWithPopup(auth, provider); 
-            } catch (error) { 
-                let errorMessage = "لم نتمكن من تسجيل دخولك باستخدام جوجل. يرجى المحاولة مرة أخرى.";
-                if (error.code === 'auth/popup-closed-by-user') {
-                    errorMessage = "تم إغلاق نافذة تسجيل الدخول بواسطة المستخدم.";
-                } else if (error.code === 'auth/cancelled-popup-request') {
-                     errorMessage = "طلب تسجيل الدخول عبر النافذة المنبثقة تم إلغاؤه.";
-                } else if (error.code === 'auth/unauthorized-domain') {
-                     errorMessage = "النطاق الحالي غير مصرح به في إعدادات مشروع Firebase. يرجى مراجعة إعدادات Firebase Authorized Domains.";
-                }
-                showAlert("فشل تسجيل الدخول", errorMessage);
-                console.error("Google sign-in error:", error);
-            } 
-        };
+        window.signInWithGoogle = async () => { const e = new GoogleAuthProvider; try { await signInWithPopup(auth, e) } catch (e) { showAlert("فشل تسجيل الدخول", "لم نتمكن من تسجيل دخولك باستخدام جوجل. يرجى المحاولة مرة أخرى.") } };
         window.signOutUser = async () => { try { await signOut(auth) } catch (e) { showAlert("خطأ", "فشلت عملية تسجيل الخروج.") } };
         
         function clearDataAndListeners() {
@@ -1061,39 +776,12 @@
         
         function setupRealtimeListeners() {
             clearDataAndListeners();
-            // تحديد userId: إذا لم يكن المستخدم موجودًا، استخدم معرفًا افتراضيًا أو anonymous
-            // هذا لضمان أن التطبيق يعمل حتى لو لم يكن المستخدم مسجلاً للدخول،
-            // مع العلم أن قواعد أمان Firebase يجب أن تسمح بالوصول لهذه البيانات.
-            // إذا كنت ترغب في أن يشارك جميع المستخدمين نفس البيانات بدون تسجيل دخول،
-            // فستحتاج إلى استخدام UID ثابت هنا (مثل 'guest_user' أو 'shared_data_id')
-            // وتعديل قواعد أمان Firestore للسماح للقراءة/الكتابة بدون مصادقة لهذا الـ UID.
-            // حالياً، الكود يفترض وجود مستخدم مصادق عليه (e.uid).
-            // إذا كنت تريد فتح التطبيق بدون مصادقة، ستحتاج إلى تعيين userId بطريقة مختلفة
-            // والسماح بالوصول في قواعد Firestore.
-            if (!userId) { // هذا الجزء مضاف لاحتمال "استثناء الدخول"
-                userId = "shared_public_data"; // معرف ثابت للبيانات العامة
-                // يجب تعديل قواعد أمان Firestore للسماح بالوصول إلى "shared_public_data"
-                // مثال لقاعدة Firestore العامة (للقراءة فقط):
-                // match /inventory-data/shared_public_data/{document=**} {
-                //   allow read: if true;
-                //   allow write: if false; // لا تسمح بالكتابة للمستخدمين غير المصادق عليهم
-                // }
-                // إذا كنت تريد السماح بالكتابة أيضًا، فستكون: allow read, write: if true;
-                // ولكن هذا غير آمن في بيئة عامة.
-                // للحفاظ على الأمان مع "استثناء الدخول" والوصول للبيانات، يفضل استخدام
-                // `signInAnonymously` أو UID محدد مسبقًا مع قواعد أمان محكمة.
-                // لأغراض هذا التعديل (إزالة شاشة الدخول)، سنفترض أن البيانات عامة أو ستتعامل
-                // معها بقواعد أمان تسمح بذلك.
-            }
-
             const layoutDocRef = doc(db, "inventory-data", userId, "layout", "main");
             layoutUnsubscribe = onSnapshot(layoutDocRef, (snapshot) => {
                 if (snapshot.exists() && Object.keys(snapshot.data()).length > 0) {
                     state.warehouseConfig = snapshot.data();
                 } else {
                     const defaultConfig = { A: { name: "المنطقة أ", columns: 10, shelvesPerColumn: 30 }, B: { name: "المنطقة ب", columns: 8, shelvesPerColumn: 20 } };
-                    // لا تقم بـ setDoc هنا إذا كان userId عامًا، إلا إذا كنت تريد أي مستخدم
-                    // أن ينشئ التكوين الافتراضي.
                     setDoc(layoutDocRef, defaultConfig);
                     state.warehouseConfig = defaultConfig;
                 }
@@ -1121,53 +809,41 @@
             }, error => console.error("Financials listener failed:", error));
         }
         
-        window.addCompany = async (event) => { event.preventDefault(); const t = event.target; const o = { name: t.companyName.value.trim(), contact: t.companyContact.value.trim(), address: t.companyAddress.value.trim(), phone: t.companyPhone.value.trim(), }; if (o.name && !state.companies.some(s => s.name === o.name)) try { await addDoc(collection(db, "inventory-data", userId, "companies"), o); closeModal("addCompanyModal"); t.reset(); } catch (err) { showAlert("خطأ", "لم نتمكن من إضافة الشركة."); } else showAlert("خطأ", "اسم الشركة موجود بالفعل أو غير صالح."); };
-        
-        window.openEditCompanyModal = (companyId) => {
-            const company = state.companies.find(c => c.id === companyId);
-            if (!company) {
-                showAlert('خطأ', 'لم يتم العثور على العميل.');
-                return;
-            }
-            document.getElementById('editCompanyId').value = company.id;
-            document.getElementById('editCompanyName').value = company.name;
-            document.getElementById('editCompanyContact').value = company.contact || '';
-            document.getElementById('editCompanyAddress').value = company.address || '';
-            document.getElementById('editCompanyPhone').value = company.phone || '';
-            
-            openModal('editCompanyModal');
-        };
-
-        const handleEditCompany = async (event) => {
+        window.handleCompanyFormSubmit = async (event) => {
             event.preventDefault();
             const form = event.target;
-            const companyId = form.editCompanyId.value;
-            const updatedData = {
-                name: form.editCompanyName.value.trim(),
-                contact: form.editCompanyContact.value.trim(),
-                address: form.editCompanyAddress.value.trim(),
-                phone: form.editCompanyPhone.value.trim(),
+            const editId = form.editId.value;
+            const companyData = {
+                name: form.companyName.value.trim(),
+                contact: form.companyContact.value.trim(),
+                address: form.companyAddress.value.trim(),
+                phone: form.companyPhone.value.trim(),
             };
 
-            if (!updatedData.name) {
-                showAlert('خطأ', 'اسم الشركة لا يمكن أن يكون فارغاً.');
-                return;
-            }
-            
-            if (state.companies.some(c => c.name === updatedData.name && c.id !== companyId)) {
-                showAlert("خطأ", "اسم الشركة موجود بالفعل لعميل آخر.");
+            if (!companyData.name) {
+                showAlert("خطأ", "اسم الشركة مطلوب.");
                 return;
             }
 
-            const companyDocRef = doc(db, "inventory-data", userId, "companies", companyId);
+            const isDuplicate = state.companies.some(c => c.name === companyData.name && c.id !== editId);
+            if (isDuplicate) {
+                showAlert("خطأ", "اسم الشركة هذا موجود بالفعل.");
+                return;
+            }
 
             try {
-                await updateDoc(companyDocRef, updatedData);
-                showAlert('نجاح', 'تم تحديث بيانات العميل بنجاح.');
-                closeModal('editCompanyModal');
+                if (editId) {
+                    const companyRef = doc(db, "inventory-data", userId, "companies", editId);
+                    await updateDoc(companyRef, companyData);
+                    showAlert('نجاح', 'تم تعديل بيانات العميل بنجاح.');
+                } else {
+                    await addDoc(collection(db, "inventory-data", userId, "companies"), companyData);
+                    showAlert('نجاح', 'تم إضافة العميل بنجاح.');
+                }
+                closeModal('addCompanyModal');
             } catch (err) {
-                showAlert('خطأ', 'فشل تحديث بيانات العميل.');
-                console.error("Failed to update company:", err);
+                showAlert("خطأ", `فشلت العملية: ${err.message}`);
+                console.error(err);
             }
         };
 
@@ -1218,196 +894,33 @@
 
         window.openDispatchModal = e => { const t = state.inventory.find(o => o.id === e); t && showConfirmation("إخلاء الصنف بالكامل؟", `سيتم حذف الصنف ${t.name} (الكمية: ${t.quantity}) من الموقع ${t.locationId}. هل أنت متأكد؟`, async () => { try { await deleteDoc(doc(db, "inventory-data", userId, "inventory", e)); const o = { itemId: e, itemSku: t.sku, itemName: t.name, type: "dispatch", reason: "إخلاء كلي", quantity: t.quantity, timestamp: new Date }; await addDoc(collection(db, "inventory-data", userId, "transactions"), o); showAlert("نجاح", "تم إخلاء الصنف من الموقع بنجاح.") } catch (err) { showAlert("خطأ", "فشلت عملية إخلاء الصنف.") } }) };
         
-        window.calculateBilling = () => {
-            const companyId = document.getElementById("billing-company").value;
-            const monthlyStorageRate = parseFloat(document.getElementById("storage-rate").value);
-            const startDateVal = document.getElementById("billing-start-date").value;
-            const endDateVal = document.getElementById("billing-end-date").value;
-            const resultContainer = document.getElementById("billing-result");
-            document.getElementById('report-display').classList.add('hidden'); 
-
-            if (!companyId || !monthlyStorageRate || monthlyStorageRate <= 0 || !startDateVal || !endDateVal) {
-                showAlert("بيانات ناقصة", "يرجى اختيار شركة، إدخال سعر تخزين شهري صحيح، وتحديد فترة الفاتورة بالكامل.");
-                resultContainer.classList.add("hidden");
-                return;
-            }
-            
-            const dailyRate = monthlyStorageRate / 30.0;
-            const billingStartDate = new Date(startDateVal);
-            const billingEndDate = new Date(endDateVal);
-            billingStartDate.setHours(0, 0, 0, 0);
-            billingEndDate.setHours(23, 59, 59, 999); 
-            
-            if (billingEndDate < billingStartDate) {
-                showAlert("خطأ في التواريخ", "تاريخ نهاية الفترة يجب أن يكون بعد تاريخ البداية.");
-                resultContainer.classList.add("hidden");
+        window.printTransaction = (transactionId) => {
+            const transaction = state.transactions.find(t => t.id === transactionId);
+            if (!transaction) {
+                showAlert('خطأ', 'لم يتم العثور على الحركة المطلوبة.');
                 return;
             }
 
-            const company = state.companies.find(c => c.id === companyId);
-            const relevantInventory = state.inventory.filter(item => 
-                item.companyId === companyId && new Date(item.entryDate) <= billingEndDate
-            );
-            
-            let totalCost = 0;
-            const detailsContainer = document.getElementById("billing-details");
-            const uniqueLocations = [...new Set(relevantInventory.map(item => item.locationId))];
-
-            if (uniqueLocations.length === 0) {
-                detailsContainer.innerHTML = "<p>لا توجد مواقع محجوزة لهذه الشركة في الفترة المحددة.</p>";
-                totalCost = 0;
-            } else {
-                detailsContainer.innerHTML = uniqueLocations.sort().map(locationId => {
-                    const itemsInLocation = relevantInventory.filter(item => item.locationId === locationId);
-                    if (itemsInLocation.length === 0) return '';
-                    const earliestEntryDate = new Date(Math.min(...itemsInLocation.map(item => new Date(item.entryDate))));
-                    earliestEntryDate.setHours(0,0,0,0);
-
-                    const chargeStartDate = earliestEntryDate > billingStartDate ? earliestEntryDate : billingStartDate;
-                    
-                    if (chargeStartDate > billingEndDate) {
-                        return ''; 
-                    }
-                    
-                    const cleanBillingEndDate = new Date(endDateVal);
-                    const storageDays = Math.max(1, Math.round((cleanBillingEndDate - chargeStartDate) / (1000 * 60 * 60 * 24)) + 1);
-
-                    const locationCost = dailyRate * storageDays;
-                    totalCost += locationCost;
-                    const itemNames = itemsInLocation.map(i => `${i.name} (SKU: ${i.sku})`).join(', ');
-
-                    return `
-                        <div class="p-2 border-b flex justify-between items-start">
-                            <div>
-                                <p class="font-semibold">الموقع: ${locationId}</p>
-                                <p class="text-sm text-slate-600">الأصناف: ${itemNames}</p>
-                                <p class="text-sm text-slate-500">أيام التخزين المحتسبة: ${storageDays} (من ${chargeStartDate.toLocaleDateString("en-CA")} إلى ${cleanBillingEndDate.toLocaleDateString("en-CA")})</p>
-                            </div>
-                            <p class="font-semibold text-left text-slate-800 whitespace-nowrap">${locationCost.toFixed(2)} ر.س</p>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            document.getElementById("billing-result-company").textContent = `${company.name} (من ${new Date(startDateVal).toLocaleDateString("en-CA")} إلى ${new Date(endDateVal).toLocaleDateString("en-CA")})`;
-            document.getElementById("billing-total").textContent = `${totalCost.toLocaleString("ar-SA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ر.س`;
-            resultContainer.classList.remove("hidden");
-        };
-
-        window.printInvoice = () => {
             const printableDiv = document.getElementById('printable-invoice');
-            const resultDiv = document.getElementById('billing-result');
-
-            if (!resultDiv || resultDiv.classList.contains('hidden')) {
-                showAlert('لا يمكن الطباعة', 'يرجى أولاً إصدار فاتورة لعرضها.');
-                return;
-            }
-            
-            const companyId = document.getElementById("billing-company").value;
-            const monthlyStorageRate = parseFloat(document.getElementById("storage-rate").value);
-            const startDateVal = document.getElementById("billing-start-date").value;
-            const endDateVal = document.getElementById("billing-end-date").value;
-            
-            if (!companyId || !monthlyStorageRate || !startDateVal || !endDateVal) return;
-            
-            const dailyRate = monthlyStorageRate / 30.0;
-            const billingStartDate = new Date(startDateVal);
-            const billingEndDate = new Date(endDateVal);
-            billingStartDate.setHours(0, 0, 0, 0);
-            billingEndDate.setHours(23, 59, 59, 999);
-            
-            const clientCompany = state.companies.find(c => c.id === companyId);
-            const relevantInventory = state.inventory.filter(item => 
-                item.companyId === companyId && new Date(item.entryDate) <= billingEndDate
-            );
-            const uniqueLocations = [...new Set(relevantInventory.map(item => item.locationId))];
-            let totalCost = 0;
-
-            const tableRows = uniqueLocations.sort().map(locationId => {
-                const itemsInLocation = relevantInventory.filter(item => item.locationId === locationId);
-                if (itemsInLocation.length === 0) return '';
-                
-                const earliestEntryDate = new Date(Math.min(...itemsInLocation.map(item => new Date(item.entryDate))));
-                earliestEntryDate.setHours(0,0,0,0);
-                
-                const chargeStartDate = earliestEntryDate > billingStartDate ? earliestEntryDate : billingStartDate;
-                
-                if (chargeStartDate > billingEndDate) return '';
-                
-                const cleanBillingEndDate = new Date(endDateVal);
-                const storageDays = Math.max(1, Math.round((cleanBillingEndDate - chargeStartDate) / (1000 * 60 * 60 * 24)) + 1);
-
-                const locationCost = dailyRate * storageDays;
-                totalCost += locationCost;
-                const itemNames = itemsInLocation.map(i => i.name).join(', ');
-
-                return `
-                    <tr class="border-b">
-                        <td class="p-2">${locationId}</td>
-                        <td class="p-2">${itemNames}</td>
-                        <td class="p-2 text-center">${storageDays}</td>
-                        <td class="p-2 text-center">${dailyRate.toFixed(2)}</td>
-                        <td class="p-2 text-left">${locationCost.toFixed(2)}</td>
-                    </tr>
-                `;
-            }).join('');
-
-            const invoiceHTML = `
-                <div class="p-8 bg-white text-black">
-                    <header class="flex justify-between items-start pb-4 border-b">
-                        <div>
-                            <h1 class="text-2xl font-bold text-teal-700">شركة الحلول اللوجستية</h1>
-                            <p class="text-sm">شارع الملك فهد، الرياض، المملكة العربية السعودية</p>
-                            <p class="text-sm">info@logistic-solutions.sa | +966 11 123 4567</p>
-                        </div>
-                        <div class="text-left">
-                            <h2 class="text-3xl font-bold uppercase">عرض سعر</h2>
-                            <p class="text-sm">تاريخ الإصدار: ${new Date().toLocaleDateString("en-CA")}</p>
-                            <p class="text-sm font-semibold">للفترة من: ${new Date(startDateVal).toLocaleDateString("en-CA")} إلى ${new Date(endDateVal).toLocaleDateString("en-CA")}</p>
-                        </div>
-                    </header>
-                    
-                    <section class="my-8">
-                        <h3 class="font-bold mb-2">مقدم إلى:</h3>
-                        <p>${clientCompany.name}</p>
-                        <p>${clientCompany.address || 'لا يوجد عنوان'}</p>
-                        <p>${clientCompany.phone || 'لا يوجد هاتف'}</p>
-                    </section>
-
-                    <section>
-                        <table class="w-full text-sm">
-                            <thead class="bg-slate-100">
-                                <tr class="text-right">
-                                    <th class="p-2 font-semibold">الموقع</th>
-                                    <th class="p-2 font-semibold">تفاصيل الأصناف</th>
-                                    <th class="p-2 font-semibold text-center">أيام التخزين</th>
-                                    <th class="p-2 font-semibold text-center">التكلفة/يوم</th>
-                                    <th class="p-2 font-semibold text-left">الإجمالي (ر.س)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${tableRows}
-                            </tbody>
-                        </table>
-                    </section>
-
-                    <section class="mt-8 flex justify-end">
-                        <div class="w-1/3">
-                            <div class="flex justify-between border-t-2 pt-2">
-                                <span class="font-bold">الإجمالي النهائي:</span>
-                                <span class="font-bold text-left">${totalCost.toLocaleString("ar-SA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ر.س</span>
-                            </div>
-                        </div>
-                    </section>
-
+            const isAdd = transaction.type === 'add';
+            const transactionHTML = `
+                <div class="p-8 bg-white text-black" style="font-family: 'Cairo', sans-serif;">
+                    <h1 class="text-2xl font-bold text-center mb-6">تفاصيل الحركة المخزنية</h1>
+                    <div class="grid grid-cols-2 gap-4 text-lg">
+                        <p><strong>التاريخ:</strong></p><p>${new Date(transaction.timestamp.toMillis()).toLocaleString("ar-SA")}</p>
+                        <p><strong>نوع الحركة:</strong></p><p class="font-bold ${isAdd ? 'text-green-600' : 'text-red-600'}">${isAdd ? 'إضافة' : 'صرف'}</p>
+                        <p><strong>السبب:</strong></p><p>${transaction.reason}</p>
+                        <p><strong>SKU:</strong></p><p>${transaction.itemSku}</p>
+                        <p><strong>اسم الصنف:</strong></p><p>${transaction.itemName}</p>
+                        <p><strong>الكمية:</strong></p><p class="font-bold">${transaction.quantity}</p>
+                    </div>
                     <footer class="mt-16 text-xs text-center text-slate-500 border-t pt-4">
-                        <p>هذا عرض سعر تقديري. الأسعار غير شاملة ضريبة القيمة المضافة.</p>
-                        <p>شكرًا لتعاملكم معنا.</p>
+                        <p>مستند تم إنشاؤه بواسطة منصة إدارة الأعمال</p>
                     </footer>
                 </div>
             `;
-            
-            printableDiv.innerHTML = invoiceHTML;
+
+            printableDiv.innerHTML = transactionHTML;
             window.print();
             printableDiv.innerHTML = '';
         };
@@ -1465,6 +978,7 @@
                 document.getElementById('add-trans-date').valueAsDate = new Date();
                 switchAddTransView('existing');
             } else {
+                 // Do nothing on input, wait for blur or submission to show error
                  errorDiv.classList.add('hidden');
             }
         }
@@ -1478,6 +992,7 @@
 
             try {
                 if (isNewItemMode) {
+                    // --- Logic for adding a completely new item ---
                     const newItem = {
                         sku: document.getElementById('new-form-sku').value.trim().toUpperCase(),
                         name: document.getElementById('new-form-name').value.trim(),
@@ -1513,6 +1028,7 @@
                      showAlert('نجاح', 'تم إضافة الصنف الجديد وتسجيل الحركة بنجاح.');
 
                 } else if (isExistingItemMode) {
+                    // --- Logic for adding to an existing SKU ---
                     const sku = document.getElementById('selected-sku-code').textContent;
                     const referenceItem = state.inventory.find(i => i.sku === sku);
                     if (!referenceItem) throw new Error("لم يتم العثور على الصنف المرجعي.");
@@ -1532,6 +1048,7 @@
                     const existingRecord = state.inventory.find(i => i.sku === sku && i.locationId === locationId);
                     
                     if (existingRecord) {
+                        // Update quantity in existing location
                         const itemDocRef = doc(db, "inventory-data", userId, "inventory", existingRecord.id);
                         const newQuantity = existingRecord.quantity + quantity;
                         await updateDoc(itemDocRef, { quantity: newQuantity });
@@ -1542,6 +1059,7 @@
                         showAlert('نجاح', `تمت إضافة الكمية إلى الموقع ${locationId} بنجاح.`);
 
                     } else {
+                        // Add SKU to a new, empty location
                         const locationOccupant = state.inventory.find(i => i.locationId === locationId);
                         if (locationOccupant) {
                             throw new Error(`الموقع ${locationId} مشغول بصنف آخر (SKU: ${locationOccupant.sku}).`);
@@ -1558,13 +1076,14 @@
                         showAlert('نجاح', `تم تخزين الصنف في الموقع الجديد ${locationId} بنجاح.`);
                     }
                 } else {
+                    // This case happens if user clicks submit on the initial screen
                     const skuInput = document.getElementById('add-trans-sku-select').value.toUpperCase();
                     if(skuInput && !state.inventory.some(i => i.sku === skuInput)) {
                         document.getElementById('add-trans-sku-error').classList.remove('hidden');
                     } else {
                         showAlert('إجراء غير مكتمل', 'الرجاء اختيار صنف موجود أو إضافة صنف جديد أولاً.');
                     }
-                    return; 
+                    return; // Prevent closing modal
                 }
 
                 closeModal('addTransactionModal');
@@ -1611,7 +1130,7 @@
                     if (newQuantity > 0) {
                         transaction.update(itemDocRef, { quantity: newQuantity });
                     } else {
-                        transaction.delete(itemDocRef);
+                        transaction.delete(itemDocRef); // Remove item if quantity is zero
                     }
                     
                     const transLogRef = doc(collection(db, "inventory-data", userId, "transactions"));
@@ -1711,80 +1230,6 @@
             });
         };
 
-        window.generateInventoryReport = () => {
-            if (state.inventory.length === 0) {
-                showAlert('لا توجد بيانات', 'لا يوجد مخزون لعرضه في التقرير.');
-                return;
-            }
-            const companyMap = new Map(state.companies.map(c => [c.id, c.name]));
-            const reportContent = `
-                <table class="w-full text-sm text-left text-slate-500">
-                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th>
-                            <th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th>
-                            <th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${state.inventory.sort((a, b) => a.locationId.localeCompare(b.locationId)).map(item => `
-                            <tr class="bg-white border-b">
-                                <td class="px-6 py-4 font-bold">${item.locationId}</td><td class="px-6 py-4">${item.sku}</td>
-                                <td class="px-6 py-4">${item.name}</td><td class="px-6 py-4">${companyMap.get(item.companyId) || 'N/A'}</td>
-                                <td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${item.entryDate}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>`;
-            document.getElementById('report-display-title').textContent = 'تقرير المخزون الحالي';
-            document.getElementById('report-display-content').innerHTML = reportContent;
-            document.getElementById('report-display').classList.remove('hidden');
-            document.getElementById('billing-result').classList.add('hidden');
-        };
-
-        window.generateTransactionsReport = () => {
-            const startDateInput = document.getElementById('report-start-date'), endDateInput = document.getElementById('report-end-date');
-            if (!startDateInput.value || !endDateInput.value) { showAlert('بيانات ناقصة', 'يرجى تحديد تاريخ البدء والانتهاء للتقرير.'); return; }
-            const startDate = new Date(startDateInput.value); startDate.setHours(0, 0, 0, 0);
-            const endDate = new Date(endDateInput.value); endDate.setHours(23, 59, 59, 999);
-            const filteredTransactions = state.transactions.filter(t => { const transDate = t.timestamp.toDate(); return transDate >= startDate && transDate <= endDate; });
-            if (filteredTransactions.length === 0) { showAlert('لا توجد بيانات', 'لا توجد حركات في الفترة المحددة.'); return; }
-            const reportContent = `
-                <table class="w-full text-sm text-left text-slate-500">
-                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
-                        <tr>
-                            <th class="px-4 py-2">التاريخ والوقت</th><th class="px-4 py-2">نوع الحركة</th>
-                            <th class="px-4 py-2">السبب</th><th class="px-4 py-2">SKU</th>
-                            <th class="px-4 py-2">الصنف</th><th class="px-4 py-2">الكمية</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${filteredTransactions.sort((a,b) => b.timestamp.toDate() - a.timestamp.toDate()).map(t => {
-                            const isAdd = t.type === 'add';
-                            return `
-                            <tr class="bg-white border-b">
-                                <td class="px-4 py-2">${t.timestamp.toDate().toLocaleString('en-CA')}</td>
-                                <td class="px-4 py-2 font-semibold ${isAdd ? 'text-green-600' : 'text-red-600'}">${isAdd ? 'إضافة' : 'صرف'}</td>
-                                <td class="px-4 py-2">${t.reason}</td><td class="px-4 py-2">${t.itemSku}</td>
-                                <td class="px-4 py-2">${t.itemName}</td><td class="px-4 py-2">${t.quantity}</td>
-                            </tr>`}).join('')}
-                    </tbody>
-                </table>`;
-            document.getElementById('report-display-title').textContent = `تقرير الحركات من ${startDate.toLocaleDateString('en-CA')} إلى ${endDate.toLocaleDateString('en-CA')}`;
-            document.getElementById('report-display-content').innerHTML = reportContent;
-            document.getElementById('report-display').classList.remove('hidden');
-            document.getElementById('billing-result').classList.add('hidden');
-        };
-
-        window.printGeneratedReport = () => {
-            const reportTitle = document.getElementById('report-display-title').textContent;
-            const reportHTML = document.getElementById('report-display-content').innerHTML;
-            const printableDiv = document.getElementById('printable-invoice');
-            printableDiv.innerHTML = `<div class="p-8 bg-white text-black" style="direction: rtl; font-family: 'Cairo', sans-serif;"><h1 class="text-2xl font-bold mb-4 text-center">${reportTitle}</h1><p class="text-center text-sm mb-6">تاريخ الطباعة: ${new Date().toLocaleString('en-CA')}</p>${reportHTML}</div>`;
-            window.print();
-            printableDiv.innerHTML = '';
-        };
-
         // --- Attach Listeners ---
         document.getElementById('add-trans-sku-select').addEventListener('input', handleSkuSelect);
         document.getElementById('add-new-item-btn').addEventListener('click', () => switchAddTransView('new'));
@@ -1792,6 +1237,7 @@
         document.getElementById('change-sku-btn').addEventListener('click', () => switchAddTransView('initial'));
 
         document.getElementById('dispatch-trans-sku-search').addEventListener('input', (e) => {
+            // Re-implementing dispatch search logic here as it was removed in previous refactoring attempts
             const sku = e.target.value.toUpperCase();
             const resultsContainer = document.getElementById('dispatch-sku-search-results');
             resultsContainer.innerHTML = '';
@@ -1811,8 +1257,7 @@
         
         document.getElementById('addInventoryForm').addEventListener('submit', handleInventoryAddition);
         document.getElementById('dispatchInventoryForm').addEventListener('submit', handleInventoryDispatch);
-        document.getElementById('addCompanyForm').addEventListener('submit', addCompany);
-        document.getElementById('editCompanyForm').addEventListener('submit', handleEditCompany);
+        document.getElementById('addCompanyForm').addEventListener('submit', handleCompanyFormSubmit);
         document.getElementById('addItemForm').addEventListener('submit', addItem);
         document.getElementById('addZoneForm').addEventListener('submit', handleZoneSubmit);
         document.getElementById('addRevenueForm').addEventListener('submit', (e) => addFinancialTransaction(e, 'revenue'));

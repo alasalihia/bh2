@@ -48,7 +48,6 @@
 </head>
 <body class="bg-slate-100 text-slate-800">
 
-    <!-- شاشة تسجيل الدخول -->
     <div id="login-screen" class="flex flex-col items-center justify-center p-8 min-h-screen">
         <div class="text-center bg-white p-12 rounded-2xl shadow-xl max-w-lg w-full">
             <h1 class="text-3xl md:text-4xl font-bold text-teal-700 mb-4">منصة إدارة الأعمال</h1>
@@ -60,7 +59,6 @@
         </div>
     </div>
 
-    <!-- شاشة اختيار الأنظمة الرئيسية -->
     <div id="main-menu-screen" class="min-h-screen p-8">
         <header class="flex justify-between items-center mb-12">
             <h1 class="text-3xl font-bold text-slate-800">القائمة الرئيسية</h1>
@@ -77,7 +75,6 @@
         </div>
     </div>
     
-    <!-- MODULE: Inventory System -->
     <div id="inventory-module-container" class="module-container flex min-h-screen w-full">
         <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
             <h2 class="text-xl font-bold text-teal-700 text-center mb-4 mt-4">نظام المخازن</h2>
@@ -93,28 +90,23 @@
             </nav>
         </aside>
         <div class="flex-grow p-4 md:p-8 bg-slate-100">
-            <!-- PAGE: Layout -->
             <main id="page-layout" class="page active">
                 <div id="layout-header" class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-                    <!-- This will be populated by JS -->
-                </div>
+                    </div>
                 <div id="layout-views-container">
                     <div id="layout-zones-view" class="layout-view active"></div>
                     <div id="layout-zone-detail-view" class="layout-view"></div>
                 </div>
             </main>
-            <!-- Other pages for inventory module... -->
             <main id="page-dashboard" class="page"><h2 class="text-3xl font-bold text-slate-800">لوحة التحكم الرئيسية</h2><div id="dashboard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-teal-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg></div><div><h3 class="text-slate-500">إجمالي الشركات</h3><p id="total-companies" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-sky-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div><div><h3 class="text-slate-500">إجمالي عدد المنتجات</h3><p id="total-items" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-amber-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 8h6m-5 4h.01M4.878 21.121A10.002 10.002 0 0012 23a10.002 10.002 0 007.122-2.879M15 4.878A10.002 10.002 0 0012 2 10.002 10.002 0 004.878 4.878" /></svg></div><div><h3 class="text-slate-500">القيمة الإجمالية للمخزون</h3><p id="total-value" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-rose-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div><div><h3 class="text-slate-500">المواقع المحجوزة اليوم</h3><p id="today-items" class="text-2xl font-bold">0</p></div></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><h3 class="text-xl font-bold text-teal-700 mb-4">قيمة المخزون حسب الشركة</h3><div class="chart-container"><canvas id="company-value-chart"></canvas></div></div></main>
             <main id="page-customers" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إدارة العملاء</h2><button onclick="openModal('addCompanyModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة عميل جديد</button></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">اسم العميل</th><th scope="col" class="px-6 py-3">المسؤول</th><th scope="col" class="px-6 py-3">العنوان</th><th scope="col" class="px-6 py-3">رقم الاتصال</th><th scope="col" class="px-6 py-3">عدد المواقع</th><th scope="col" class="px-6 py-3">إجمالي المنتجات</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="customers-table-body"></tbody></table></div></div></main>
             <main id="page-inventory" class="page"><div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"><h2 class="text-3xl font-bold text-slate-800">جدول المخزون</h2><div class="flex-grow flex justify-center"><input type="text" id="search-input" placeholder="ابحث عن صنف أو شركة..." class="w-full max-w-lg p-2 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"></div><div class="flex gap-2"><button onclick="openModal('addItemModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg">إضافة صنف</button><button onclick="openModal('importModal')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">استيراد من ملف</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th><th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th><th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">سعر الوحدة</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="inventory-table-body"></tbody></table></div></div></main>
             <main id="page-transactions" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">سجل الحركات المخزنية</h2><div class="flex gap-2"><button onclick="openModal('addTransactionModal')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">إضافة جديدة</button><button onclick="openModal('dispatchTransactionModal')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">صرف جديد</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th class="px-4 py-2">التاريخ</th><th class="px-4 py-2">نوع الحركة</th><th class="px-4 py-2">السبب</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">الصنف</th><th class="px-4 py-2">الكمية</th></tr></thead><tbody id="transactions-table-body"></tbody></table></div></div></main>
             
-            <!-- PAGE: Reports (REVISED with Monthly Rate) -->
             <main id="page-reports" class="page">
                 <h2 class="text-3xl font-bold text-slate-800 mb-6">التقارير</h2>
             
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Box 1: Storage Cost Calculator -->
                     <div class="bg-white p-6 rounded-xl shadow-lg h-fit">
                         <h3 class="text-xl font-bold text-teal-700 mb-4">1. حساب تكاليف التخزين (فاتورة تقديرية)</h3>
                         <div class="space-y-4">
@@ -138,7 +130,6 @@
                         </div>
                     </div>
             
-                    <!-- Box 2: Other Reports -->
                     <div class="bg-white p-6 rounded-xl shadow-lg space-y-6">
                         <div>
                             <h3 class="text-xl font-bold text-teal-700 mb-4">2. تقارير المخزون والحركات</h3>
@@ -156,7 +147,6 @@
                     </div>
                 </div>
             
-                <!-- Area for showing billing result -->
                 <div id="billing-result" class="mt-8 hidden bg-white p-6 rounded-xl shadow-lg">
                     <div id="invoice-header" class="flex justify-between items-center mb-4">
                         <h3 class="font-bold text-lg">تفاصيل الفاتورة لـ <span id="billing-result-company" class="text-teal-600"></span></h3>
@@ -172,7 +162,6 @@
                     </div>
                 </div>
 
-                <!-- Area for showing other reports -->
                 <div id="report-display" class="mt-8 hidden bg-white p-6 rounded-xl shadow-lg">
                     <div class="flex justify-between items-center mb-4 border-b pb-2">
                         <h3 id="report-display-title" class="text-xl font-bold text-slate-800"></h3>
@@ -182,8 +171,7 @@
                         </div>
                     </div>
                     <div id="report-display-content" class="max-h-[60vh] overflow-y-auto">
-                        <!-- Report table will be injected here -->
-                    </div>
+                        </div>
                 </div>
             </main>
 
@@ -191,7 +179,6 @@
         </div>
     </div>
     
-    <!-- MODULE: Financial System -->
     <div id="financial-module-container" class="module-container flex min-h-screen w-full">
         <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
             <h2 class="text-xl font-bold text-amber-700 text-center mb-4 mt-4">النظام المالي</h2>
@@ -246,10 +233,8 @@
     <div id="invoicing-module-container" class="module-container p-8 w-full"><button onclick="showModule('main-menu-screen')" class="mb-8 text-sm text-blue-600 hover:underline"> &larr; العودة للقائمة الرئيسية</button><div class="text-center"><h1 class="text-4xl font-bold text-slate-800">نظام الفوترة</h1><p class="text-slate-500 mt-4">هذا النظام قيد التطوير.</p></div></div>
     <div id="hr-module-container" class="module-container p-8 w-full"><button onclick="showModule('main-menu-screen')" class="mb-8 text-sm text-blue-600 hover:underline"> &larr; العودة للقائمة الرئيسية</button><div class="text-center"><h1 class="text-4xl font-bold text-slate-800">نظام شؤون الموظفين</h1><p class="text-slate-500 mt-2">الرواتب، الإجازات، ونهاية الخدمة.</p></div></div>
 
-    <!-- Modals -->
     <div id="addCompanyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">إضافة عميل جديد</h3><form id="addCompanyForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="companyName" class="block mb-2 text-sm font-medium">اسم الشركة</label><input type="text" id="companyName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="companyContact" class="block mb-2 text-sm font-medium">اسم المسؤول</label><input type="text" id="companyContact" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div class="md:col-span-2"><label for="companyAddress" class="block mb-2 text-sm font-medium">العنوان</label><input type="text" id="companyAddress" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div><div><label for="companyPhone" class="block mb-2 text-sm font-medium">رقم الاتصال</label><input type="tel" id="companyPhone" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addCompanyModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
     
-    <!-- Edit Company Modal -->
     <div id="editCompanyModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
         <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95">
             <h3 class="text-xl font-bold mb-4">تعديل بيانات العميل</h3>
@@ -284,13 +269,11 @@
     <div id="addItemModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">تسكين صنف في موقع</h3><form id="addItemForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="itemLocation" class="block mb-2 text-sm font-medium">اختر الموقع</label><input type="text" list="locations-datalist" id="itemLocation" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemCompany" class="block mb-2 text-sm font-medium">الشركة</label><select id="itemCompany" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></select></div><div class="md:col-span-2"><label for="itemSKU" class="block mb-2 text-sm font-medium">SKU (رمز المنتج)</label><input type="text" id="itemSKU" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="itemName" class="block mb-2 text-sm font-medium">اسم الصنف</label><input type="text" id="itemName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemQuantity" class="block mb-2 text-sm font-medium">العدد</label><input type="number" id="itemQuantity" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemPrice" class="block mb-2 text-sm font-medium">سعر الوحدة (ر.س)</label><input type="number" id="itemPrice" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="entryDate" class="block mb-2 text-sm font-medium">تاريخ الإدخال</label><input type="date" id="entryDate" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addItemModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة</button></div></form></div></div>
     <div id="importModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-4xl p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">استيراد المنتجات من ملف</h3><div class="bg-white p-6 rounded-xl space-y-6"><div class="flex justify-between items-center"><div><h3 class="text-lg font-semibold mb-2">الخطوة 1: ارفع ملف CSV</h3><p class="text-sm text-slate-500 mb-2">يجب أن يحتوي الملف على الأعمدة التالية بالترتيب: SKU, اسم المنتج, اسم الشركة, الموقع, العدد, سعر الوحدة</p></div><button onclick="downloadExampleCSV()" class="bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-lg text-sm">تحميل ملف مثال</button></div><input type="file" id="import-file-input" accept=".csv" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"/></div><div id="import-preview-container" class="hidden mt-4"><div><h3 class="text-lg font-semibold mb-2">الخطوة 2: معاينة البيانات وتحديد تاريخ الاستلام</h3><label for="delivery-date" class="block mb-2 text-sm font-medium">تاريخ الاستلام لجميع الأصناف في الملف:</label><input type="date" id="delivery-date" class="p-2 border rounded-lg mb-4"></div><div class="max-h-96 overflow-y-auto border rounded-lg"><table class="w-full text-sm text-left"><thead class="text-xs text-slate-700 uppercase bg-slate-100 sticky top-0"><tr><th class="px-4 py-2">الحالة</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">اسم المنتج</th><th class="px-4 py-2">الشركة</th><th class="px-4 py-2">الموقع</th><th class="px-4 py-2">العدد</th><th class="px-4 py-2">السعر</th></tr></thead><tbody id="import-preview-body"></tbody></table></div><div class="mt-6"><h3 class="text-lg font-semibold mb-2">الخطوة 3: تأكيد الاستيراد</h3><button id="confirm-import-button" onclick="confirmImport()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">تأكيد الاستيراد (<span id="valid-rows-count">0</span>) أصناف صالحة</button></div></div><div class="mt-6 flex justify-end"><button type="button" onclick="closeModal('importModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إغلاق</button></div></div></div>
     
-    <!-- MODIFIED TRANSACTION MODALS -->
     <div id="addTransactionModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
         <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 transform scale-95">
             <h3 class="text-xl font-bold mb-4">تسجيل حركة إضافة</h3>
             <form id="addInventoryForm">
-                 <!-- Step 1: Choose between existing and new -->
-                <div id="add-trans-initial-step">
+                 <div id="add-trans-initial-step">
                     <label for="add-trans-sku-select" class="block mb-2 text-sm font-medium">ابحث عن صنف موجود (بالـ SKU) أو اختره من القائمة</label>
                     <input type="text" id="add-trans-sku-select" list="sku-datalist" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" placeholder="أدخل SKU...">
                     <div id="add-trans-sku-error" class="text-red-500 text-sm mt-1 hidden">لم يتم العثور على الصنف. يمكنك إضافته كصنف جديد.</div>
@@ -300,7 +283,6 @@
                     <button type="button" id="add-new-item-btn" class="w-full bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-lg hover:bg-blue-200 transition-colors">إضافة صنف جديد كلياً</button>
                 </div>
 
-                <!-- Step 2 (Option A): Add to existing SKU -->
                 <div id="add-trans-existing-item-details" class="hidden space-y-4">
                      <button type="button" id="change-sku-btn" class="text-sm text-blue-600 hover:underline mb-2">&larr; تغيير الصنف</button>
                      <div class="p-3 bg-slate-100 rounded-lg">
@@ -333,7 +315,6 @@
                      </div>
                 </div>
 
-                <!-- Step 2 (Option B): Add new item form -->
                 <div id="add-trans-new-item-form" class="hidden space-y-4">
                      <button type="button" id="back-to-search-btn" class="text-sm text-blue-600 hover:underline mb-2">&larr; العودة للبحث</button>
                      <h4 class="font-bold text-lg">تفاصيل الصنف الجديد</h4>
@@ -393,7 +374,6 @@
     <div id="alertModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-sm p-6 transform scale-95 text-center"><h3 id="alertModalTitle" class="text-xl font-bold mb-4"></h3><p id="alertModalMessage" class="mb-6"></p><div id="alertModalButtons" class="flex justify-center space-x-2 rtl:space-x-reverse"></div></div></div>
     <div id="shelf-tooltip" class="shelf-tooltip"></div>
     <div id="addZoneModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">إضافة / تعديل منطقة</h3><form id="addZoneForm"><input type="hidden" id="zone-edit-id"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="zone-id" class="block mb-2 text-sm font-medium">معرف المنطقة (حرف إنجليزي واحد)</label><input type="text" id="zone-id" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required maxlength="1"></div><div><label for="zone-name" class="block mb-2 text-sm font-medium">اسم المنطقة</label><input type="text" id="zone-name" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-columns" class="block mb-2 text-sm font-medium">عدد الأعمدة</label><input type="number" id="zone-columns" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-shelves" class="block mb-2 text-sm font-medium">عدد الرفوف لكل عمود</label><input type="number" id="zone-shelves" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addZoneModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
-    <!-- Financial Modals -->
     <div id="addRevenueModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-green-600">إضافة إيراد جديد</h3><form id="addRevenueForm"><div class="space-y-4"><div><label for="revenue-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="revenue-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="revenue-description" class="block mb-2 text-sm font-medium">بند الإيراد</label><input type="text" id="revenue-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: مبيعات منتج س"></div><div><label for="revenue-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="revenue-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="مبيعات">مبيعات</option><option value="خدمات">خدمات</option><option value="أخرى">أخرى</option></select></div><div><label for="revenue-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="revenue-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addRevenueModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">حفظ الإيراد</button></div></form></div></div>
     <div id="addExpenseModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-red-600">إضافة مصروف جديد</h3><form id="addExpenseForm"><div class="space-y-4"><div><label for="expense-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="expense-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="expense-description" class="block mb-2 text-sm font-medium">بند المصروف</label><input type="text" id="expense-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: فاتورة كهرباء"></div><div><label for="expense-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="expense-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="رواتب">رواتب</option><option value="إيجار">إيجار</option><option value="فواتير">فواتير</option><option value="مشتريات">مشتريات</option><option value="تسويق">تسويق</option><option value="أخرى">أخرى</option></select></div><div><label for="expense-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="expense-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addExpenseModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">حفظ المصروف</button></div></form></div></div>
     <datalist id="sku-datalist"></datalist>
@@ -880,7 +860,31 @@
             }, error => console.error("Financials listener failed:", error));
         }
         
-        window.addCompany = async (event) => { event.preventDefault(); const t = event.target; const o = { name: t.companyName.value.trim(), contact: t.companyContact.value.trim(), address: t.companyAddress.value.trim(), phone: t.companyPhone.value.trim(), }; if (o.name && !state.companies.some(s => s.name === o.name)) try { await addDoc(collection(db, "inventory-data", userId, "companies"), o); closeModal("addCompanyModal"); t.reset(); } catch (err) { showAlert("خطأ", "لم نتمكن من إضافة الشركة."); } else showAlert("خطأ", "اسم الشركة موجود بالفعل أو غير صالح."); };
+        // --- START: CORRECTED FUNCTION ---
+        window.addCompany = async (event) => {
+            event.preventDefault();
+            const t = event.target;
+            const o = {
+                name: t.companyName.value.trim(),
+                contact: t.companyContact.value.trim(),
+                address: t.companyAddress.value.trim(),
+                phone: t.companyPhone.value.trim(),
+            };
+
+            if (o.name && !state.companies.some(s => s.name === o.name)) {
+                try {
+                    await addDoc(collection(db, "inventory-data", userId, "companies"), o);
+                    closeModal("addCompanyModal");
+                    t.reset();
+                } catch (err) {
+                    showAlert("خطأ", "لم نتمكن من إضافة الشركة.");
+                    console.error("Error adding company:", err);
+                }
+            } else {
+                showAlert("خطأ", "اسم الشركة موجود بالفعل أو غير صالح.");
+            }
+        };
+        // --- END: CORRECTED FUNCTION ---
         
         window.openEditCompanyModal = (companyId) => {
             const company = state.companies.find(c => c.id === companyId);

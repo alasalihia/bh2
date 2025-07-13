@@ -22,15 +22,18 @@
         .sidebar-link { display: flex; align-items: center; padding: 0.75rem 1rem; border-radius: 0.5rem; transition: background-color 0.2s, color 0.2s; }
         .sidebar-link.active, .sidebar-link:hover { background-color: #14b8a6; color: white; }
         .sidebar-link svg { margin-left: 0.75rem; }
-        .module-card, .zone-card, .column-card { transition: transform 0.2s, box-shadow 0.2s; }
-        .module-card:hover, .zone-card:hover, .column-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
-        .shelf-column-container { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; }
-        .shelf-column { display: flex; flex-direction: column; gap: 0.5rem; }
-        .shelf { width: 5rem; height: 3rem; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.25rem; cursor: pointer; transition: all 0.2s; }
-        .shelf.available { background-color: #d1fae5; border: 1px solid #10b981; color: #065f46; }
-        .shelf.available:hover { background-color: #a7f3d0; }
-        .shelf.occupied { background-color: #fee2e2; border: 1px solid #ef4444; color: #991b1b; font-weight: bold; }
-        .shelf-tooltip { position: absolute; background-color: #1f2937; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; z-index: 50; display: none; white-space: nowrap; max-width: 300px; }
+        .module-card, .zone-card, .layout-row { transition: transform 0.2s, box-shadow 0.2s; }
+        .module-card:hover, .zone-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+        
+        /* Styles for the updated layout */
+        .layout-row-container { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; }
+        .layout-row { display: flex; flex-direction: column; gap: 0.5rem; }
+        .layout-level { width: 6rem; height: 3.5rem; font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 0.25rem; cursor: pointer; transition: all 0.2s; }
+        .layout-level.available { background-color: #d1fae5; border: 1px solid #10b981; color: #065f46; }
+        .layout-level.available:hover { background-color: #a7f3d0; }
+        .layout-level.occupied { background-color: #fee2e2; border: 1px solid #ef4444; color: #991b1b; font-weight: bold; }
+        .level-tooltip { position: absolute; background-color: #1f2937; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; z-index: 50; display: none; white-space: nowrap; max-width: 300px; }
+        
         @media print {
             body * { visibility: hidden; }
             #printable-invoice, #printable-invoice * { visibility: visible; }
@@ -48,6 +51,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800">
 
+    <!-- Login Screen -->
     <div id="login-screen" class="flex flex-col items-center justify-center p-8 min-h-screen">
         <div class="text-center bg-white p-12 rounded-2xl shadow-xl max-w-lg w-full">
             <h1 class="text-3xl md:text-4xl font-bold text-teal-700 mb-4">منصة إدارة الأعمال</h1>
@@ -59,6 +63,7 @@
         </div>
     </div>
 
+    <!-- Main Menu Screen -->
     <div id="main-menu-screen" class="min-h-screen p-8">
         <header class="flex justify-between items-center mb-12">
             <h1 class="text-3xl font-bold text-slate-800">القائمة الرئيسية</h1>
@@ -75,6 +80,7 @@
         </div>
     </div>
     
+    <!-- Inventory Module -->
     <div id="inventory-module-container" class="module-container flex min-h-screen w-full">
         <aside class="w-64 bg-white shadow-lg flex flex-col p-4">
             <h2 class="text-xl font-bold text-teal-700 text-center mb-4 mt-4">نظام المخازن</h2>
@@ -92,7 +98,7 @@
         <div class="flex-grow p-4 md:p-8 bg-slate-100">
             <main id="page-layout" class="page active">
                 <div id="layout-header" class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-                    </div>
+                </div>
                 <div id="layout-views-container">
                     <div id="layout-zones-view" class="layout-view active"></div>
                     <div id="layout-zone-detail-view" class="layout-view"></div>
@@ -175,7 +181,13 @@
                 </div>
             </main>
 
-            <main id="page-settings" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إعدادات المستودع</h2><button onclick="openModal('addZoneModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة منطقة جديدة</button></div><div id="warehouse-settings-container" class="bg-white p-6 rounded-xl shadow-lg"></div></main>
+            <main id="page-settings" class="page">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-slate-800">إعدادات المستودع</h2>
+                    <button onclick="openModal('addZoneModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة منطقة جديدة</button>
+                </div>
+                <div id="warehouse-settings-container" class="bg-white p-6 rounded-xl shadow-lg"></div>
+            </main>
         </div>
     </div>
     
@@ -292,7 +304,7 @@
                      
                      <div>
                         <label for="add-trans-location" class="block mb-2 text-sm font-medium">الموقع (اختر موقعاً حالياً لزيادة الكمية، أو موقعاً فارغاً جديداً)</label>
-                        <input type="text" id="add-trans-location" list="locations-datalist" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" placeholder="مثال: A-01-01">
+                        <input type="text" id="add-trans-location" list="locations-datalist" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" placeholder="مثال: A-101-01">
                      </div>
                     
                      <div>
@@ -372,34 +384,73 @@
     </div>
 
     <div id="alertModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-sm p-6 transform scale-95 text-center"><h3 id="alertModalTitle" class="text-xl font-bold mb-4"></h3><p id="alertModalMessage" class="mb-6"></p><div id="alertModalButtons" class="flex justify-center space-x-2 rtl:space-x-reverse"></div></div></div>
-    <div id="shelf-tooltip" class="shelf-tooltip"></div>
-    <div id="addZoneModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">إضافة / تعديل منطقة</h3><form id="addZoneForm"><input type="hidden" id="zone-edit-id"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="zone-id" class="block mb-2 text-sm font-medium">معرف المنطقة (حرف إنجليزي واحد)</label><input type="text" id="zone-id" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required maxlength="1"></div><div><label for="zone-name" class="block mb-2 text-sm font-medium">اسم المنطقة</label><input type="text" id="zone-name" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-columns" class="block mb-2 text-sm font-medium">عدد الأعمدة</label><input type="number" id="zone-columns" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="zone-shelves" class="block mb-2 text-sm font-medium">عدد الرفوف لكل عمود</label><input type="number" id="zone-shelves" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addZoneModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button></div></form></div></div>
+    
+    <!-- Zone Settings Modal -->
+    <div id="addZoneModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95">
+            <h3 class="text-xl font-bold mb-4">إضافة / تعديل منطقة</h3>
+            <form id="addZoneForm">
+                <input type="hidden" id="zone-edit-id">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="zone-id" class="block mb-2 text-sm font-medium">معرف المنطقة (حرف إنجليزي واحد)</label>
+                        <input type="text" id="zone-id" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required maxlength="1">
+                    </div>
+                    <div>
+                        <label for="zone-name" class="block mb-2 text-sm font-medium">اسم المنطقة</label>
+                        <input type="text" id="zone-name" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required>
+                    </div>
+                    <div>
+                        <label for="zone-floors" class="block mb-2 text-sm font-medium">عدد الطوابق</label>
+                        <input type="number" id="zone-floors" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required>
+                    </div>
+                    <div>
+                        <label for="zone-rows-per-floor" class="block mb-2 text-sm font-medium">عدد الصفوف لكل طابق</label>
+                        <input type="number" id="zone-rows-per-floor" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="zone-levels-per-row" class="block mb-2 text-sm font-medium">عدد المستويات لكل صف</label>
+                        <input type="number" id="zone-levels-per-row" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse">
+                    <button type="button" onclick="closeModal('addZoneModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button>
+                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">حفظ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div id="addRevenueModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-green-600">إضافة إيراد جديد</h3><form id="addRevenueForm"><div class="space-y-4"><div><label for="revenue-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="revenue-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="revenue-description" class="block mb-2 text-sm font-medium">بند الإيراد</label><input type="text" id="revenue-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: مبيعات منتج س"></div><div><label for="revenue-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="revenue-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="مبيعات">مبيعات</option><option value="خدمات">خدمات</option><option value="أخرى">أخرى</option></select></div><div><label for="revenue-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="revenue-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addRevenueModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">حفظ الإيراد</button></div></form></div></div>
     <div id="addExpenseModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4 text-red-600">إضافة مصروف جديد</h3><form id="addExpenseForm"><div class="space-y-4"><div><label for="expense-date" class="block mb-2 text-sm font-medium">التاريخ</label><input type="date" id="expense-date" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="expense-description" class="block mb-2 text-sm font-medium">بند المصروف</label><input type="text" id="expense-description" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="مثال: فاتورة كهرباء"></div><div><label for="expense-category" class="block mb-2 text-sm font-medium">الفئة</label><select id="expense-category" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required><option value="رواتب">رواتب</option><option value="إيجار">إيجار</option><option value="فواتير">فواتير</option><option value="مشتريات">مشتريات</option><option value="تسويق">تسويق</option><option value="أخرى">أخرى</option></select></div><div><label for="expense-amount" class="block mb-2 text-sm font-medium">المبلغ</label><input type="number" id="expense-amount" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addExpenseModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg">إلغاء</button><button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">حفظ المصروف</button></div></form></div></div>
+    
     <datalist id="sku-datalist"></datalist>
     <datalist id="locations-datalist"></datalist>
     <div id="printable-invoice"></div>
+    <div id="level-tooltip" class="level-tooltip"></div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, addDoc, onSnapshot, writeBatch, deleteDoc, updateDoc, runTransaction, setDoc, getDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         
+        // Firebase configuration
         const firebaseConfig = { apiKey: "AIzaSyDSlxf95W00Ow6LZba8waAKJINptIRPkU8", authDomain: "sample-firebase-ai-app-960f4.firebaseapp.com", projectId: "sample-firebase-ai-app-960f4", storageBucket: "sample-firebase-ai-app-960f4.appspot.com", messagingSenderId: "741880884079", appId: "1:741880884079:web:8d2f6e233fb65e65e969a" };
         
+        // Global variables
         let app, auth, db, userId;
         let companiesUnsubscribe, inventoryUnsubscribe, transactionsUnsubscribe, layoutUnsubscribe, financialsUnsubscribe;
         let state = { companies: [], inventory: [], transactions: [], warehouseConfig: {}, financials: [] };
         let parsedFileData = [], confirmationCallback = null, companyValueChart = null, financialSummaryChart = null, allLocations = new Set();
         let skuSearchTimeout;
 
-
+        // UI elements cache
         const ui = {
             loginScreen: document.getElementById('login-screen'),
             mainMenuScreen: document.getElementById('main-menu-screen'),
             userDisplayName: document.getElementById('main-menu-user-display-name'),
             searchInput: document.getElementById('search-input'),
-            tooltip: document.getElementById('shelf-tooltip'),
+            tooltip: document.getElementById('level-tooltip'),
             importFileInput: document.getElementById('import-file-input'),
             importPreviewContainer: document.getElementById('import-preview-container'),
             layoutHeader: document.getElementById('layout-header'),
@@ -410,6 +461,7 @@
             addZoneForm: document.getElementById('addZoneForm')
         };
         
+        // Modal management
         window.openModal = (modalId, context = null) => {
             const modal = document.getElementById(modalId);
             if (modalId === 'addItemModal') {
@@ -436,15 +488,17 @@
             } else if (modalId === 'addZoneModal') {
                 ui.addZoneForm.reset();
                 const title = modal.querySelector('h3');
-                if (context) {
+                if (context) { // Editing existing zone
                     title.textContent = 'تعديل المنطقة';
                     document.getElementById('zone-edit-id').value = context.id;
                     document.getElementById('zone-id').value = context.id;
                     document.getElementById('zone-id').disabled = true;
                     document.getElementById('zone-name').value = context.name;
-                    document.getElementById('zone-columns').value = context.columns;
-                    document.getElementById('zone-shelves').value = context.shelvesPerColumn;
-                } else {
+                    // Populate new structure fields
+                    document.getElementById('zone-floors').value = context.floors;
+                    document.getElementById('zone-rows-per-floor').value = context.rowsPerFloor;
+                    document.getElementById('zone-levels-per-row').value = context.levelsPerRow;
+                } else { // Adding new zone
                     title.textContent = 'إضافة منطقة جديدة';
                     document.getElementById('zone-edit-id').value = '';
                     document.getElementById('zone-id').disabled = false;
@@ -464,6 +518,7 @@
             setTimeout(() => modal.classList.add('hidden'), 300);
         };
         
+        // Alert and Confirmation
         const showAlert = (title, message) => {
             document.getElementById('alertModalTitle').textContent = title;
             document.getElementById('alertModalMessage').innerHTML = message;
@@ -478,9 +533,9 @@
             confirmationCallback = onConfirm;
             openModal('alertModal');
         };
-
         window.handleConfirm = () => { if (confirmationCallback) { confirmationCallback(); } closeModal('alertModal'); confirmationCallback = null; };
         
+        // Navigation
         window.showModule = (moduleId) => { 
             document.querySelectorAll('.module-container').forEach(mc => mc.style.display = 'none'); 
             ui.mainMenuScreen.style.display = 'none'; 
@@ -549,15 +604,15 @@
             const occupiedLocations = new Set(state.inventory.map(i => i.locationId));
             ui.zonesView.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-6">${Object.keys(state.warehouseConfig).sort().map(zoneId => {
                 const zone = state.warehouseConfig[zoneId];
-                if(!zone) return '';
-                const totalShelves = zone.columns * zone.shelvesPerColumn;
+                if(!zone || !zone.floors) return ''; // Only render new structure
+                const totalLevels = zone.floors * zone.rowsPerFloor * zone.levelsPerRow;
                 const occupiedCount = Array.from(occupiedLocations).filter(loc => loc.startsWith(zoneId)).length;
-                const percentage = totalShelves > 0 ? ((occupiedCount / totalShelves) * 100).toFixed(1) : 0;
+                const percentage = totalLevels > 0 ? ((occupiedCount / totalLevels) * 100).toFixed(1) : 0;
                 return `<div onclick="renderLayoutView('zone-detail', '${zoneId}')" class="zone-card bg-white p-6 rounded-xl shadow-lg cursor-pointer text-center">
                     <h3 class="text-2xl font-bold text-teal-600">المنطقة ${zoneId}</h3>
                     <p class="text-slate-500 mt-2">${zone.name}</p>
                     <div class="w-full bg-slate-200 rounded-full h-2.5 mt-4"><div class="bg-teal-500 h-2.5 rounded-full" style="width: ${percentage}%"></div></div>
-                    <p class="mt-2 text-sm font-semibold">${occupiedCount} / ${totalShelves} موقع مشغول (${percentage}%)</p>
+                    <p class="mt-2 text-sm font-semibold">${occupiedCount} / ${totalLevels} موقع مشغول (${percentage}%)</p>
                 </div>`;
             }).join('')}</div>`;
             ui.zonesView.classList.add('active');
@@ -566,7 +621,7 @@
         function renderZoneDetailView(zoneId) {
             ui.layoutHeader.innerHTML = `<div class="flex items-center gap-4"><button onclick="renderLayoutView('zones')" class="text-blue-600">&larr; عودة للمناطق</button><h2 class="text-3xl font-bold text-slate-800">تفاصيل المنطقة ${zoneId}</h2></div>`;
             const zone = state.warehouseConfig[zoneId];
-            if(!zone){ renderZonesView(); return; }
+            if(!zone || !zone.floors){ renderZonesView(); return; }
 
             const occupiedMap = new Map();
             state.inventory.forEach(item => {
@@ -576,23 +631,30 @@
                 }
             });
 
-            let detailHTML = `<div class="bg-white p-4 rounded-xl shadow-lg"><div class="shelf-column-container">`;
+            let detailHTML = `<div class="bg-white p-4 rounded-xl shadow-lg space-y-8">`;
 
-            for (let c = 1; c <= zone.columns; c++) {
-                const colId = c.toString().padStart(2, '0');
-                detailHTML += `<div class="shelf-column space-y-2 p-2 bg-slate-50 rounded-lg"><h4 class="text-center font-bold text-sky-700">عمود ${colId}</h4>`;
-                for (let s = 1; s <= zone.shelvesPerColumn; s++) {
-                    const shelfId = s.toString().padStart(2, '0'), locationId = `${zoneId}-${colId}-${shelfId}`;
-                    const items = occupiedMap.get(locationId);
-                    const tooltipText = items ? items.map(item => `SKU: ${item.sku} (الكمية: ${item.quantity})`).join('<br>') : `الموقع: ${locationId}<br>الحالة: فارغ`;
-                    detailHTML += `<div id="${locationId}" data-tooltip="${tooltipText}" class="shelf ${items ? 'occupied' : 'available'}">
-                        <span class="font-bold">${locationId}</span>
-                        <span class="text-xs">${items ? `(${items.length} أصناف)` : ''}</span>
-                    </div>`;
+            for (let f = 1; f <= zone.floors; f++) {
+                detailHTML += `<div><h3 class="text-xl font-bold text-slate-700 mb-3 border-b pb-2">الطابق ${f}</h3>`;
+                detailHTML += `<div class="layout-row-container">`;
+
+                for (let r = 1; r <= zone.rowsPerFloor; r++) {
+                    const rowNum = `${f}${r.toString().padStart(2, '0')}`;
+                    detailHTML += `<div class="layout-row space-y-2 p-2 bg-slate-50 rounded-lg"><h4 class="text-center font-bold text-sky-700">صف ${rowNum}</h4>`;
+                    for (let l = 1; l <= zone.levelsPerRow; l++) {
+                        const levelId = l.toString().padStart(2, '0');
+                        const locationId = `${zoneId}-${rowNum}-${levelId}`;
+                        const items = occupiedMap.get(locationId);
+                        const tooltipText = items ? items.map(item => `SKU: ${item.sku} (الكمية: ${item.quantity})`).join('<br>') : `الموقع: ${locationId}<br>الحالة: فارغ`;
+                        detailHTML += `<div id="${locationId}" data-tooltip="${tooltipText}" class="layout-level ${items ? 'occupied' : 'available'}">
+                            <span class="font-bold">${locationId}</span>
+                            <span class="text-xs">${items ? `(${items.length} أصناف)` : 'فارغ'}</span>
+                        </div>`;
+                    }
+                    detailHTML += '</div>'; // End layout-row
                 }
-                detailHTML += '</div>';
+                detailHTML += '</div></div>'; // End layout-row-container & floor div
             }
-            detailHTML += '</div></div>';
+            detailHTML += '</div>'; // End main container
             ui.zoneDetailView.innerHTML = detailHTML;
             ui.zoneDetailView.classList.add('active');
             addTooltipEvents();
@@ -656,19 +718,23 @@
                     <tr>
                         <th class="px-6 py-3">معرف المنطقة</th>
                         <th class="px-6 py-3">اسم المنطقة</th>
-                        <th class="px-6 py-3">الأعمدة</th>
-                        <th class="px-6 py-3">الرفوف/عمود</th>
+                        <th class="px-6 py-3">الطوابق</th>
+                        <th class="px-6 py-3">الصفوف/الطابق</th>
+                        <th class="px-6 py-3">المستويات/الصف</th>
                         <th class="px-6 py-3 text-center">إجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
                 ${Object.keys(state.warehouseConfig).sort().map(zoneId => {
                     const zone = state.warehouseConfig[zoneId];
+                    // Only display zones with the new structure
+                    if (!zone.floors) return ''; 
                     return `<tr class="bg-white border-b">
                         <td class="px-6 py-4 font-bold">${zoneId}</td>
                         <td class="px-6 py-4">${zone.name}</td>
-                        <td class="px-6 py-4">${zone.columns}</td>
-                        <td class="px-6 py-4">${zone.shelvesPerColumn}</td>
+                        <td class="px-6 py-4">${zone.floors}</td>
+                        <td class="px-6 py-4">${zone.rowsPerFloor}</td>
+                        <td class="px-6 py-4">${zone.levelsPerRow}</td>
                         <td class="px-6 py-4 text-center">
                             <button onclick='openModal("addZoneModal", ${JSON.stringify({...zone, id: zoneId})})' class="text-blue-600 hover:underline">تعديل</button>
                             <button onclick='deleteZone("${zoneId}")' class="text-red-600 hover:underline mr-4">حذف</button>
@@ -788,7 +854,19 @@
                 });
             }
         }
-        function addTooltipEvents() { document.querySelectorAll(".shelf").forEach(e => { e.addEventListener("mousemove", t => { ui.tooltip.style.display = "block", ui.tooltip.style.left = `${t.pageX + 15}px`, ui.tooltip.style.top = `${t.pageY + 15}px`, ui.tooltip.innerHTML = e.dataset.tooltip }), e.addEventListener("mouseleave", () => { ui.tooltip.style.display = "none" }) }) }
+        function addTooltipEvents() { 
+            document.querySelectorAll(".layout-level").forEach(e => { 
+                e.addEventListener("mousemove", t => { 
+                    ui.tooltip.style.display = "block";
+                    ui.tooltip.style.left = `${t.pageX + 15}px`;
+                    ui.tooltip.style.top = `${t.pageY + 15}px`;
+                    ui.tooltip.innerHTML = e.dataset.tooltip;
+                });
+                e.addEventListener("mouseleave", () => { 
+                    ui.tooltip.style.display = "none";
+                });
+            });
+        }
         
         async function initializeFirebase() {
             try {
@@ -832,15 +910,32 @@
                 if (snapshot.exists() && Object.keys(snapshot.data()).length > 0) {
                     state.warehouseConfig = snapshot.data();
                 } else {
-                    const defaultConfig = { A: { name: "المنطقة أ", columns: 10, shelvesPerColumn: 30 }, B: { name: "المنطقة ب", columns: 8, shelvesPerColumn: 20 } };
+                    // Default to new structure
+                    const defaultConfig = { 
+                        A: { name: "المنطقة أ", floors: 2, rowsPerFloor: 10, levelsPerRow: 5 }, 
+                        B: { name: "المنطقة ب", floors: 1, rowsPerFloor: 15, levelsPerRow: 8 } 
+                    };
                     setDoc(layoutDocRef, defaultConfig);
                     state.warehouseConfig = defaultConfig;
                 }
+                
+                // Generate locations based on the new structure
                 allLocations.clear();
-                for (const z in state.warehouseConfig) { for (let c = 1; c <= state.warehouseConfig[z].columns; c++) { for (let s = 1; s <= state.warehouseConfig[z].shelvesPerColumn; s++) { 
-                    const locId = `${z.toUpperCase()}-${c.toString().padStart(2, '0')}-${s.toString().padStart(2, '0')}`;
-                    allLocations.add(locId);
-                } } }
+                for (const z in state.warehouseConfig) {
+                    const zone = state.warehouseConfig[z];
+                    if (zone.floors && zone.rowsPerFloor && zone.levelsPerRow) {
+                        for (let f = 1; f <= zone.floors; f++) {
+                            for (let r = 1; r <= zone.rowsPerFloor; r++) {
+                                for (let l = 1; l <= zone.levelsPerRow; l++) {
+                                    const rowId = `${f}${r.toString().padStart(2, '0')}`;
+                                    const levelId = l.toString().padStart(2, '0');
+                                    const locId = `${z.toUpperCase()}-${rowId}-${levelId}`;
+                                    allLocations.add(locId);
+                                }
+                            }
+                        }
+                    }
+                }
                 renderAll();
             });
 
@@ -860,7 +955,6 @@
             }, error => console.error("Financials listener failed:", error));
         }
         
-        // --- START: CORRECTED FUNCTION ---
         window.addCompany = async (event) => {
             event.preventDefault();
             const t = event.target;
@@ -884,7 +978,6 @@
                 showAlert("خطأ", "اسم الشركة موجود بالفعل أو غير صالح.");
             }
         };
-        // --- END: CORRECTED FUNCTION ---
         
         window.openEditCompanyModal = (companyId) => {
             const company = state.companies.find(c => c.id === companyId);
@@ -1180,8 +1273,8 @@
         window.downloadExampleCSV = () => {
             const csvContent = "data:text/csv;charset=utf-8,"
                 + "sku,name,companyName,locationId,quantity,price\n"
-                + "SKU-EX-01,منتج مثال 1,الشركة المتحدة,A-01-01,50,19.99\n"
-                + "SKU-EX-02,منتج مثال 2,شركة الأمواج,B-03-10,120,5.50\n";
+                + "SKU-EX-01,منتج مثال 1,الشركة المتحدة,A-101-01,50,19.99\n"
+                + "SKU-EX-02,منتج مثال 2,شركة الأمواج,B-103-10,120,5.50\n";
 
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
@@ -1197,7 +1290,6 @@
         window.confirmImport = async () => { const e = document.getElementById("delivery-date").value; if (!e) { showAlert("بيانات ناقصة", "الرجاء تحديد تاريخ الاستلام."); return } const t = parsedFileData.filter(o => o.isValid); if (0 === t.length) { showAlert("لا توجد بيانات صالحة", "لا توجد صفوف صالحة للاستيراد في الملف."); return } const o = new Map(state.companies.map(c => [c.name.toLowerCase(), c.id])), c = writeBatch(db); for (const row of t) { const existingItemQuery = query(collection(db, "inventory-data", userId, "inventory"), where("locationId", "==", row.locationId), where("sku", "==", row.sku.toUpperCase())); const querySnapshot = await getDocs(existingItemQuery); if (!querySnapshot.empty) { const existingDoc = querySnapshot.docs[0]; const newQuantity = existingDoc.data().quantity + Number(row.quantity); c.update(doc(db, "inventory-data", userId, "inventory", existingDoc.id), { quantity: newQuantity }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: existingDoc.id, itemSku: row.sku.toUpperCase(), itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } else { const newItemRef = doc(collection(db, "inventory-data", userId, "inventory")); c.set(newItemRef, { name: row.name, quantity: Number(row.quantity), price: Number(row.price), companyId: o.get(row.companyName.toLowerCase()), entryDate: e, locationId: row.locationId, sku: row.sku.toUpperCase() }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: newItemRef.id, itemSku: row.sku.toUpperCase(), itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } } try { await c.commit(); showAlert("نجاح", `تم استيراد ${t.length} صنف بنجاح.`); ui.importFileInput.value = ""; ui.importPreviewContainer.style.display = "none"; closeModal("importModal") } catch (e) { showAlert("خطأ", "فشلت عملية الاستيراد. يرى المحاولة مرة أخرى."); console.error("Import failed:", e) } };
         
         // --- New Add Transaction Logic ---
-
         function switchAddTransView(view) {
             const initialStep = document.getElementById('add-trans-initial-step');
             const existingDetails = document.getElementById('add-trans-existing-item-details');
@@ -1439,10 +1531,12 @@
             if (!zoneId.match(/^[A-Z]$/)) { showAlert('خطأ', 'معرف المنطقة يجب أن يكون حرفاً إنجليزياً واحداً.'); return; }
             if (!editId && state.warehouseConfig[zoneId]) { showAlert('خطأ', 'معرف المنطقة هذا مستخدم بالفعل.'); return; }
 
+            // Create data object with the new structure
             const zoneData = {
                 name: form['zone-name'].value.trim(),
-                columns: Number(form['zone-columns'].value),
-                shelvesPerColumn: Number(form['zone-shelves'].value),
+                floors: Number(form['zone-floors'].value),
+                rowsPerFloor: Number(form['zone-rows-per-floor'].value),
+                levelsPerRow: Number(form['zone-levels-per-row'].value),
             };
 
             const newConfig = { ...state.warehouseConfig };
@@ -1457,6 +1551,7 @@
                 showAlert('خطأ', 'فشل حفظ إعدادات المنطقة.');
             }
         };
+
         window.deleteZone = async (zoneId) => {
             const isUsed = state.inventory.some(item => item.locationId.startsWith(zoneId));
             if (isUsed) { showAlert('عملية مرفوضة', 'لا يمكن حذف المنطقة لأنها تحتوي على أصناف مخزنة.'); return; }

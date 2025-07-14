@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة إدارة الأعمال</title>
+    <title>منصة إدارة الأعمال - بنظام CBM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,7 +77,7 @@
             <div onclick="showModule('invoicing-module-container')" class="clickable-card bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer"><div class="bg-sky-100 text-sky-600 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg></div><h3 class="text-2xl font-bold text-slate-800">نظام الفوترة</h3><p class="text-slate-500 mt-2">إصدار الفواتير وعروض الأسعار.</p></div>
             <div onclick="showModule('financial-module-container')" class="clickable-card bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer"><div class="bg-amber-100 text-amber-600 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg></div><h3 class="text-2xl font-bold text-slate-800">النظام المالي</h3><p class="text-slate-500 mt-2">إدارة المصروفات، الإيرادات والتقارير.</p></div>
             
-            <!-- HR Module Card - CORRECTED -->
+            <!-- HR Module Card -->
             <a href="https://alasalihia.github.io/salihia/#" target="_blank" class="clickable-card bg-white p-8 rounded-2xl shadow-lg text-center cursor-pointer text-slate-800">
                 <div class="bg-violet-100 text-violet-600 rounded-full h-20 w-20 flex items-center justify-center mx-auto mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -113,9 +113,9 @@
                     <div id="layout-zone-detail-view" class="layout-view"></div>
                 </div>
             </main>
-            <main id="page-dashboard" class="page"><h2 class="text-3xl font-bold text-slate-800">لوحة التحكم الرئيسية</h2><div id="dashboard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-teal-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg></div><div><h3 class="text-slate-500">إجمالي الشركات</h3><p id="total-companies" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-sky-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div><div><h3 class="text-slate-500">إجمالي عدد المنتجات</h3><p id="total-items" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-amber-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 8h6m-5 4h.01M4.878 21.121A10.002 10.002 0 0012 23a10.002 10.002 0 007.122-2.879M15 4.878A10.002 10.002 0 0012 2 10.002 10.002 0 004.878 4.878" /></svg></div><div><h3 class="text-slate-500">القيمة الإجمالية للمخزون</h3><p id="total-value" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-rose-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div><div><h3 class="text-slate-500">المواقع المحجوزة اليوم</h3><p id="today-items" class="text-2xl font-bold">0</p></div></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><h3 class="text-xl font-bold text-teal-700 mb-4">قيمة المخزون حسب الشركة</h3><div class="chart-container"><canvas id="company-value-chart"></canvas></div></div></main>
-            <main id="page-customers" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إدارة العملاء</h2><button onclick="openModal('addCompanyModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة عميل جديد</button></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">اسم العميل</th><th scope="col" class="px-6 py-3">المسؤول</th><th scope="col" class="px-6 py-3">العنوان</th><th scope="col" class="px-6 py-3">رقم الاتصال</th><th scope="col" class="px-6 py-3">عدد المواقع</th><th scope="col" class="px-6 py-3">إجمالي المنتجات</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="customers-table-body"></tbody></table></div></div></main>
-            <main id="page-inventory" class="page"><div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"><h2 class="text-3xl font-bold text-slate-800">جدول المخزون</h2><div class="flex-grow flex justify-center"><input type="text" id="search-input" placeholder="ابحث عن صنف أو شركة..." class="w-full max-w-lg p-2 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"></div><div class="flex gap-2"><button onclick="openModal('addItemModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg">إضافة صنف</button><button onclick="openModal('importModal')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">استيراد من ملف</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th><th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th><th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">سعر الوحدة</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="inventory-table-body"></tbody></table></div></div></main>
+            <main id="page-dashboard" class="page"><h2 class="text-3xl font-bold text-slate-800">لوحة التحكم الرئيسية</h2><div id="dashboard" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-teal-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg></div><div><h3 class="text-slate-500">إجمالي الشركات</h3><p id="total-companies" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-sky-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div><div><h3 class="text-slate-500">إجمالي عدد المنتجات</h3><p id="total-items" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-amber-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 8h6m-5 4h.01M4.878 21.121A10.002 10.002 0 0012 23a10.002 10.002 0 007.122-2.879M15 4.878A10.002 10.002 0 0012 2 10.002 10.002 0 004.878 4.878" /></svg></div><div><h3 class="text-slate-500">القيمة الإجمالية للمخزون</h3><p id="total-value" class="text-2xl font-bold">0</p></div></div><div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 rtl:space-x-reverse"><div class="bg-indigo-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg></div><div><h3 class="text-slate-500">إجمالي الحجم (م³)</h3><p id="total-cbm" class="text-2xl font-bold">0</p></div></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><h3 class="text-xl font-bold text-teal-700 mb-4">قيمة المخزون حسب الشركة</h3><div class="chart-container"><canvas id="company-value-chart"></canvas></div></div></main>
+            <main id="page-customers" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">إدارة العملاء</h2><button onclick="openModal('addCompanyModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة عميل جديد</button></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">اسم العميل</th><th scope="col" class="px-6 py-3">المسؤول</th><th scope="col" class="px-6 py-3">العنوان</th><th scope="col" class="px-6 py-3">رقم الاتصال</th><th scope="col" class="px-6 py-3">عدد المواقع</th><th scope="col" class="px-6 py-3">إجمالي المنتجات</th><th scope="col" class="px-6 py-3">إجمالي الحجم (م³)</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="customers-table-body"></tbody></table></div></div></main>
+            <main id="page-inventory" class="page"><div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"><h2 class="text-3xl font-bold text-slate-800">جدول المخزون</h2><div class="flex-grow flex justify-center"><input type="text" id="search-input" placeholder="ابحث عن صنف أو شركة..." class="w-full max-w-lg p-2 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500"></div><div class="flex gap-2"><button onclick="openModal('addItemModal')" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg">إضافة صنف</button><button onclick="openModal('importModal')" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg">استيراد من ملف</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th><th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th><th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">الحجم (م³)</th><th scope="col" class="px-6 py-3">سعر الوحدة</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th><th scope="col" class="px-6 py-3 text-center">إجراءات</th></tr></thead><tbody id="inventory-table-body"></tbody></table></div></div></main>
             <main id="page-transactions" class="page"><div class="flex justify-between items-center mb-6"><h2 class="text-3xl font-bold text-slate-800">سجل الحركات المخزنية</h2><div class="flex gap-2"><button onclick="openModal('addTransactionModal')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">إضافة جديدة</button><button onclick="openModal('dispatchTransactionModal')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg">صرف جديد</button></div></div><div class="bg-white p-6 rounded-xl shadow-lg"><div class="overflow-x-auto"><table class="w-full text-sm text-left text-slate-500"><thead class="text-xs text-slate-700 uppercase bg-slate-100"><tr><th class="px-4 py-2">التاريخ</th><th class="px-4 py-2">نوع الحركة</th><th class="px-4 py-2">السبب</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">الصنف</th><th class="px-4 py-2">الكمية</th></tr></thead><tbody id="transactions-table-body"></tbody></table></div></div></main>
             
             <main id="page-reports" class="page">
@@ -138,8 +138,8 @@
                                 </div>
                             </div>
                             <div>
-                                <label for="storage-rate" class="block mb-2 text-sm font-medium text-slate-900">سعر تخزين الموقع (ر.س / للشهر):</label>
-                                <input type="number" id="storage-rate" value="45" class="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5" placeholder="مثال: 45">
+                                <label for="cbm-rate" class="block mb-2 text-sm font-medium text-slate-900">سعر تخزين المتر المكعب (ر.س / للشهر):</label>
+                                <input type="number" id="cbm-rate" value="150" class="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5" placeholder="مثال: 150">
                             </div>
                             <button onclick="calculateBilling()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">إصدار فاتورة تقديرية</button>
                         </div>
@@ -170,7 +170,7 @@
                             طباعة
                         </button>
                     </div>
-                    <div id="billing-details" class="mt-2 max-h-60 overflow-y-auto p-2 border rounded-md bg-slate-50"></div>
+                    <div id="billing-details" class="mt-2 max-h-80 overflow-y-auto p-2 border rounded-md bg-slate-50"></div>
                     <div class="mt-4 pt-4 border-t-2 border-teal-500 font-bold text-xl flex justify-between">
                         <span>الإجمالي التقديري:</span>
                         <span id="billing-total" class="text-teal-700"></span>
@@ -284,8 +284,8 @@
         </div>
     </div>
 
-    <div id="addItemModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-md p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">تسكين صنف في موقع</h3><form id="addItemForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="itemLocation" class="block mb-2 text-sm font-medium">اختر الموقع</label><input type="text" list="locations-datalist" id="itemLocation" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemCompany" class="block mb-2 text-sm font-medium">الشركة</label><select id="itemCompany" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></select></div><div class="md:col-span-2"><label for="itemSKU" class="block mb-2 text-sm font-medium">SKU (رمز المنتج)</label><input type="text" id="itemSKU" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="itemName" class="block mb-2 text-sm font-medium">اسم الصنف</label><input type="text" id="itemName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemQuantity" class="block mb-2 text-sm font-medium">العدد</label><input type="number" id="itemQuantity" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemPrice" class="block mb-2 text-sm font-medium">سعر الوحدة (ر.س)</label><input type="number" id="itemPrice" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="entryDate" class="block mb-2 text-sm font-medium">تاريخ الإدخال</label><input type="date" id="entryDate" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addItemModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة</button></div></form></div></div>
-    <div id="importModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-4xl p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">استيراد المنتجات من ملف</h3><div class="bg-white p-6 rounded-xl space-y-6"><div class="flex justify-between items-center"><div><h3 class="text-lg font-semibold mb-2">الخطوة 1: ارفع ملف CSV</h3><p class="text-sm text-slate-500 mb-2">يجب أن يحتوي الملف على الأعمدة التالية بالترتيب: SKU, اسم المنتج, اسم الشركة, الموقع, العدد, سعر الوحدة</p></div><button onclick="downloadExampleCSV()" class="bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-lg text-sm">تحميل ملف مثال</button></div><input type="file" id="import-file-input" accept=".csv" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"/></div><div id="import-preview-container" class="hidden mt-4"><div><h3 class="text-lg font-semibold mb-2">الخطوة 2: معاينة البيانات وتحديد تاريخ الاستلام</h3><label for="delivery-date" class="block mb-2 text-sm font-medium">تاريخ الاستلام لجميع الأصناف في الملف:</label><input type="date" id="delivery-date" class="p-2 border rounded-lg mb-4"></div><div class="max-h-96 overflow-y-auto border rounded-lg"><table class="w-full text-sm text-left"><thead class="text-xs text-slate-700 uppercase bg-slate-100 sticky top-0"><tr><th class="px-4 py-2">الحالة</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">اسم المنتج</th><th class="px-4 py-2">الشركة</th><th class="px-4 py-2">الموقع</th><th class="px-4 py-2">العدد</th><th class="px-4 py-2">السعر</th></tr></thead><tbody id="import-preview-body"></tbody></table></div><div class="mt-6"><h3 class="text-lg font-semibold mb-2">الخطوة 3: تأكيد الاستيراد</h3><button id="confirm-import-button" onclick="confirmImport()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">تأكيد الاستيراد (<span id="valid-rows-count">0</span>) أصناف صالحة</button></div></div><div class="mt-6 flex justify-end"><button type="button" onclick="closeModal('importModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button></div></div></div>
+    <div id="addItemModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">تسكين صنف في موقع</h3><form id="addItemForm"><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label for="itemLocation" class="block mb-2 text-sm font-medium">اختر الموقع</label><input type="text" list="locations-datalist" id="itemLocation" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemCompany" class="block mb-2 text-sm font-medium">الشركة</label><select id="itemCompany" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></select></div><div class="md:col-span-2"><label for="itemSKU" class="block mb-2 text-sm font-medium">SKU (رمز المنتج)</label><input type="text" id="itemSKU" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div class="md:col-span-2"><label for="itemName" class="block mb-2 text-sm font-medium">اسم الصنف</label><input type="text" id="itemName" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemQuantity" class="block mb-2 text-sm font-medium">العدد</label><input type="number" id="itemQuantity" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemPrice" class="block mb-2 text-sm font-medium">سعر الوحدة (ر.س)</label><input type="number" id="itemPrice" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div><div><label for="itemCBM" class="block mb-2 text-sm font-medium">الحجم (م³)</label><input type="number" id="itemCBM" min="0" step="0.001" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required placeholder="CBM للوحدة الواحدة"></div><div><label for="entryDate" class="block mb-2 text-sm font-medium">تاريخ الإدخال</label><input type="date" id="entryDate" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5" required></div></div><div class="mt-6 flex justify-end space-x-2 rtl:space-x-reverse"><button type="button" onclick="closeModal('addItemModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button><button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">إضافة</button></div></form></div></div>
+    <div id="importModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0"><div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-5xl p-6 transform scale-95"><h3 class="text-xl font-bold mb-4">استيراد المنتجات من ملف</h3><div class="bg-white p-6 rounded-xl space-y-6"><div class="flex justify-between items-center"><div><h3 class="text-lg font-semibold mb-2">الخطوة 1: ارفع ملف CSV</h3><p class="text-sm text-slate-500 mb-2">يجب أن يحتوي الملف على الأعمدة التالية بالترتيب: SKU, اسم المنتج, اسم الشركة, الموقع, العدد, سعر الوحدة, الحجم (م³)</p></div><button onclick="downloadExampleCSV()" class="bg-blue-100 text-blue-700 font-semibold py-2 px-4 rounded-lg text-sm whitespace-nowrap">تحميل ملف مثال</button></div><input type="file" id="import-file-input" accept=".csv" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"/></div><div id="import-preview-container" class="hidden mt-4"><div><h3 class="text-lg font-semibold mb-2">الخطوة 2: معاينة البيانات وتحديد تاريخ الاستلام</h3><label for="delivery-date" class="block mb-2 text-sm font-medium">تاريخ الاستلام لجميع الأصناف في الملف:</label><input type="date" id="delivery-date" class="p-2 border rounded-lg mb-4"></div><div class="max-h-96 overflow-y-auto border rounded-lg"><table class="w-full text-sm text-left"><thead class="text-xs text-slate-700 uppercase bg-slate-100 sticky top-0"><tr><th class="px-4 py-2">الحالة</th><th class="px-4 py-2">SKU</th><th class="px-4 py-2">اسم المنتج</th><th class="px-4 py-2">الشركة</th><th class="px-4 py-2">الموقع</th><th class="px-4 py-2">العدد</th><th class="px-4 py-2">السعر</th><th class="px-4 py-2">الحجم (م³)</th></tr></thead><tbody id="import-preview-body"></tbody></table></div><div class="mt-6"><h3 class="text-lg font-semibold mb-2">الخطوة 3: تأكيد الاستيراد</h3><button id="confirm-import-button" onclick="confirmImport()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">تأكيد الاستيراد (<span id="valid-rows-count">0</span>) أصناف صالحة</button></div></div><div class="mt-6 flex justify-end"><button type="button" onclick="closeModal('importModal')" class="bg-slate-300 hover:bg-slate-400 text-slate-800 font-bold py-2 px-4 rounded-lg transition-colors">إلغاء</button></div></div></div>
     
     <div id="addTransactionModal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
         <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 transform scale-95">
@@ -306,6 +306,7 @@
                      <div class="p-3 bg-slate-100 rounded-lg">
                         <p><strong>الصنف المحدد:</strong> <span id="selected-sku-name" class="font-bold"></span></p>
                         <p class="text-sm"><strong>SKU:</strong> <span id="selected-sku-code"></span></p>
+                        <p class="text-sm"><strong>الحجم (م³):</strong> <span id="selected-sku-cbm"></span></p>
                      </div>
                      
                      <div>
@@ -341,6 +342,7 @@
                         <div><label for="new-form-name" class="block mb-2 text-sm font-medium">اسم الصنف</label><input type="text" id="new-form-name" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div>
                         <div><label for="new-form-company" class="block mb-2 text-sm font-medium">الشركة</label><select id="new-form-company" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></select></div>
                         <div><label for="new-form-price" class="block mb-2 text-sm font-medium">سعر الوحدة (ر.س)</label><input type="number" id="new-form-price" min="0" step="0.01" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div>
+                        <div><label for="new-form-cbm" class="block mb-2 text-sm font-medium">الحجم (م³)</label><input type="number" id="new-form-cbm" min="0" step="0.001" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div>
                         <hr class="md:col-span-2">
                         <div><label for="new-form-location" class="block mb-2 text-sm font-medium">الموقع</label><input type="text" list="locations-datalist" id="new-form-location" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div>
                         <div><label for="new-form-quantity" class="block mb-2 text-sm font-medium">الكمية</label><input type="number" id="new-form-quantity" min="1" class="bg-slate-50 border border-slate-300 text-sm rounded-lg block w-full p-2.5"></div>
@@ -742,18 +744,19 @@
         }
 
         function renderDashboard() {
-            const todayStr = new Date().toISOString().slice(0, 10);
             document.getElementById('total-companies').textContent = state.companies.length;
             document.getElementById('total-items').textContent = state.inventory.reduce((sum, item) => sum + Number(item.quantity), 0);
             document.getElementById('total-value').textContent = `${state.inventory.reduce((sum, item) => sum + (Number(item.quantity) * Number(item.price)), 0).toLocaleString('ar-SA')} ر.س`;
-            document.getElementById('today-items').textContent = state.inventory.filter(item => item.entryDate === todayStr).length;
+            document.getElementById('total-cbm').textContent = `${state.inventory.reduce((sum, item) => sum + (Number(item.quantity) * Number(item.cbm || 0)), 0).toFixed(3)} م³`;
         }
         function renderCustomersPage() {
             const tableBody = document.getElementById('customers-table-body');
-            if (state.companies.length === 0) { tableBody.innerHTML = '<tr class="border-b"><td colspan="7" class="text-center p-4">لا يوجد عملاء مضافون.</td></tr>'; return }
+            if (state.companies.length === 0) { tableBody.innerHTML = '<tr class="border-b"><td colspan="8" class="text-center p-4">لا يوجد عملاء مضافون.</td></tr>'; return }
             tableBody.innerHTML = state.companies.sort((a, b) => a.name.localeCompare(b.name)).map(company => {
-                let locationCount = new Set(state.inventory.filter(item => item.companyId === company.id).map(item => item.locationId)).size;
-                const quantityCount = state.inventory.filter(item => item.companyId === company.id).reduce((sum, item) => sum + item.quantity, 0);
+                const companyInventory = state.inventory.filter(item => item.companyId === company.id);
+                let locationCount = new Set(companyInventory.map(item => item.locationId)).size;
+                const quantityCount = companyInventory.reduce((sum, item) => sum + item.quantity, 0);
+                const cbmCount = companyInventory.reduce((sum, item) => sum + (item.quantity * (item.cbm || 0)), 0);
                 return `<tr class="bg-white border-b hover:bg-slate-50">
                     <td class="px-6 py-4 font-medium text-slate-900">${company.name}</td>
                     <td class="px-6 py-4">${company.contact || '-'}</td>
@@ -761,6 +764,7 @@
                     <td class="px-6 py-4">${company.phone || '-'}</td>
                     <td class="px-6 py-4">${locationCount}</td>
                     <td class="px-6 py-4">${quantityCount}</td>
+                    <td class="px-6 py-4">${cbmCount.toFixed(3)}</td>
                     <td class="px-6 py-4 text-center">
                         <button onclick="openEditCompanyModal('${company.id}')" class="text-blue-600 hover:text-blue-800 font-bold px-2">تعديل</button>
                         <button onclick="deleteCompany('${company.id}')" class="text-red-600 hover:text-red-800 font-bold px-2">حذف</button>
@@ -772,10 +776,20 @@
             const tableBody = document.getElementById('inventory-table-body');
             const searchTerm = ui.searchInput.value.toLowerCase();
             const filteredInventory = state.inventory.filter(item => item.name.toLowerCase().includes(searchTerm) || (state.companies.find(c => c.id === item.companyId)?.name || "").toLowerCase().includes(searchTerm) || item.locationId.toLowerCase().includes(searchTerm) || (item.sku && item.sku.toLowerCase().includes(searchTerm)));
-            if (filteredInventory.length === 0) { tableBody.innerHTML = `<tr class="border-b"><td colspan="8" class="text-center p-4">${state.inventory.length === 0 ? "لا توجد أصناف في المخزن." : "لا توجد نتائج تطابق بحثك."}</td></tr>`; return }
+            if (filteredInventory.length === 0) { tableBody.innerHTML = `<tr class="border-b"><td colspan="9" class="text-center p-4">${state.inventory.length === 0 ? "لا توجد أصناف في المخزن." : "لا توجد نتائج تطابق بحثك."}</td></tr>`; return }
             tableBody.innerHTML = filteredInventory.sort((a, b) => a.locationId.localeCompare(b.locationId) || a.sku.localeCompare(b.sku)).map(item => {
                 const company = state.companies.find(c => c.id === item.companyId);
-                return `<tr class="bg-white border-b hover:bg-slate-50"><td class="px-6 py-4 font-bold text-slate-900">${item.locationId}</td><td class="px-6 py-4">${item.sku || "N/A"}</td><td class="px-6 py-4">${item.name}</td><td class="px-6 py-4">${company ? company.name : "غير محدد"}</td><td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${Number(item.price).toLocaleString("ar-SA")} ر.س</td><td class="px-6 py-4">${item.entryDate}</td><td class="px-6 py-4 text-center"><button onclick="openDispatchModal('${item.id}')" class="bg-amber-500 text-white px-3 py-1 text-xs rounded-md hover:bg-amber-600">إخلاء الصنف</button></td></tr>`
+                return `<tr class="bg-white border-b hover:bg-slate-50">
+                    <td class="px-6 py-4 font-bold text-slate-900">${item.locationId}</td>
+                    <td class="px-6 py-4">${item.sku || "N/A"}</td>
+                    <td class="px-6 py-4">${item.name}</td>
+                    <td class="px-6 py-4">${company ? company.name : "غير محدد"}</td>
+                    <td class="px-6 py-4">${item.quantity}</td>
+                    <td class="px-6 py-4">${(item.cbm || 0).toFixed(3)}</td>
+                    <td class="px-6 py-4">${Number(item.price).toLocaleString("ar-SA")} ر.س</td>
+                    <td class="px-6 py-4">${item.entryDate}</td>
+                    <td class="px-6 py-4 text-center"><button onclick="openDispatchModal('${item.id}')" class="bg-amber-500 text-white px-3 py-1 text-xs rounded-md hover:bg-amber-600">إخلاء الصنف</button></td>
+                </tr>`
             }).join("")
         }
         function renderTransactionsPage() {
@@ -1263,6 +1277,7 @@
                  name: form.itemName.value.trim(),
                  quantity: Number(form.itemQuantity.value),
                  price: Number(form.itemPrice.value),
+                 cbm: Number(form.itemCBM.value),
                  companyId: form.itemCompany.value,
                  entryDate: form.entryDate.value,
                  locationId: form.itemLocation.value.trim().toUpperCase(),
@@ -1274,10 +1289,6 @@
                  return;
              }
              
-             // -- START EDIT: Allow multiple SKUs per location --
-             // The check that prevented adding different SKUs to the same location has been removed.
-             // -- END EDIT --
-
              try {
                  const existingItemQuery = query(collection(db, "inventory-data", userId, "inventory"), where("locationId", "==", newItem.locationId), where("sku", "==", newItem.sku));
                  const querySnapshot = await getDocs(existingItemQuery);
@@ -1301,21 +1312,22 @@
         };
 
         window.openDispatchModal = e => { const t = state.inventory.find(o => o.id === e); t && showConfirmation("إخلاء الصنف بالكامل؟", `سيتم حذف الصنف ${t.name} (الكمية: ${t.quantity}) من الموقع ${t.locationId}. هل أنت متأكد؟`, async () => { try { await deleteDoc(doc(db, "inventory-data", userId, "inventory", e)); const o = { itemId: e, itemSku: t.sku, itemName: t.name, type: "dispatch", reason: "إخلاء كلي", quantity: t.quantity, timestamp: new Date }; await addDoc(collection(db, "inventory-data", userId, "transactions"), o); showAlert("نجاح", "تم إخلاء الصنف من الموقع بنجاح.") } catch (err) { showAlert("خطأ", "فشلت عملية إخلاء الصنف.") } }) };
+        
         window.calculateBilling = () => {
             const companyId = document.getElementById("billing-company").value;
-            const monthlyStorageRate = parseFloat(document.getElementById("storage-rate").value);
+            const monthlyCbmRate = parseFloat(document.getElementById("cbm-rate").value);
             const startDateVal = document.getElementById("billing-start-date").value;
             const endDateVal = document.getElementById("billing-end-date").value;
             const resultContainer = document.getElementById("billing-result");
             document.getElementById('report-display').classList.add('hidden'); 
 
-            if (!companyId || !monthlyStorageRate || monthlyStorageRate <= 0 || !startDateVal || !endDateVal) {
-                showAlert("بيانات ناقصة", "يرجى اختيار شركة، إدخال سعر تخزين شهري صحيح، وتحديد فترة الفاتورة بالكامل.");
+            if (!companyId || !monthlyCbmRate || monthlyCbmRate <= 0 || !startDateVal || !endDateVal) {
+                showAlert("بيانات ناقصة", "يرجى اختيار شركة، إدخال سعر تخزين صحيح للمتر المكعب، وتحديد فترة الفاتورة بالكامل.");
                 resultContainer.classList.add("hidden");
                 return;
             }
             
-            const dailyRate = monthlyStorageRate / 30.0;
+            const dailyCbmRate = monthlyCbmRate / 30.0;
             const billingStartDate = new Date(startDateVal);
             const billingEndDate = new Date(endDateVal);
             billingStartDate.setHours(0, 0, 0, 0);
@@ -1334,19 +1346,16 @@
             
             let totalCost = 0;
             const detailsContainer = document.getElementById("billing-details");
-            const uniqueLocations = [...new Set(relevantInventory.map(item => item.locationId))];
 
-            if (uniqueLocations.length === 0) {
-                detailsContainer.innerHTML = "<p>لا توجد مواقع محجوزة لهذه الشركة في الفترة المحددة.</p>";
+            if (relevantInventory.length === 0) {
+                detailsContainer.innerHTML = "<p>لا توجد أصناف مخزنة لهذه الشركة في الفترة المحددة.</p>";
                 totalCost = 0;
             } else {
-                detailsContainer.innerHTML = uniqueLocations.sort().map(locationId => {
-                    const itemsInLocation = relevantInventory.filter(item => item.locationId === locationId);
-                    if (itemsInLocation.length === 0) return '';
-                    const earliestEntryDate = new Date(Math.min(...itemsInLocation.map(item => new Date(item.entryDate))));
-                    earliestEntryDate.setHours(0,0,0,0);
+                detailsContainer.innerHTML = relevantInventory.sort((a,b) => a.sku.localeCompare(b.sku)).map(item => {
+                    const itemEntryDate = new Date(item.entryDate);
+                    itemEntryDate.setHours(0,0,0,0);
 
-                    const chargeStartDate = earliestEntryDate > billingStartDate ? earliestEntryDate : billingStartDate;
+                    const chargeStartDate = itemEntryDate > billingStartDate ? itemEntryDate : billingStartDate;
                     
                     if (chargeStartDate > billingEndDate) {
                         return ''; 
@@ -1354,19 +1363,18 @@
                     
                     const cleanBillingEndDate = new Date(endDateVal);
                     const storageDays = Math.max(1, Math.round((cleanBillingEndDate - chargeStartDate) / (1000 * 60 * 60 * 24)) + 1);
-
-                    const locationCost = dailyRate * storageDays;
-                    totalCost += locationCost;
-                    const itemNames = itemsInLocation.map(i => `${i.name} (SKU: ${i.sku})`).join(', ');
+                    const itemVolume = (item.cbm || 0) * item.quantity;
+                    const itemCost = dailyCbmRate * storageDays * itemVolume;
+                    totalCost += itemCost;
 
                     return `
                         <div class="p-2 border-b flex justify-between items-start">
                             <div>
-                                <p class="font-semibold">الموقع: ${locationId}</p>
-                                <p class="text-sm text-slate-600">الأصناف: ${itemNames}</p>
+                                <p class="font-semibold">${item.name} (SKU: ${item.sku})</p>
+                                <p class="text-sm text-slate-600">الكمية: ${item.quantity}, الحجم الإجمالي: ${itemVolume.toFixed(3)} م³</p>
                                 <p class="text-sm text-slate-500">أيام التخزين المحتسبة: ${storageDays} (من ${chargeStartDate.toLocaleDateString("en-CA")} إلى ${cleanBillingEndDate.toLocaleDateString("en-CA")})</p>
                             </div>
-                            <p class="font-semibold text-left text-slate-800 whitespace-nowrap">${locationCost.toFixed(2)} ر.س</p>
+                            <p class="font-semibold text-left text-slate-800 whitespace-nowrap">${itemCost.toFixed(2)} ر.س</p>
                         </div>
                     `;
                 }).join('');
@@ -1376,6 +1384,7 @@
             document.getElementById("billing-total").textContent = `${totalCost.toLocaleString("ar-SA", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ر.س`;
             resultContainer.classList.remove("hidden");
         };
+
         window.printInvoice = () => {
             const printableDiv = document.getElementById('printable-invoice');
             const resultDiv = document.getElementById('billing-result');
@@ -1386,13 +1395,13 @@
             }
             
             const companyId = document.getElementById("billing-company").value;
-            const monthlyStorageRate = parseFloat(document.getElementById("storage-rate").value);
+            const monthlyCbmRate = parseFloat(document.getElementById("cbm-rate").value);
             const startDateVal = document.getElementById("billing-start-date").value;
             const endDateVal = document.getElementById("billing-end-date").value;
             
-            if (!companyId || !monthlyStorageRate || !startDateVal || !endDateVal) return;
+            if (!companyId || !monthlyCbmRate || !startDateVal || !endDateVal) return;
             
-            const dailyRate = monthlyStorageRate / 30.0;
+            const dailyCbmRate = monthlyCbmRate / 30.0;
             const billingStartDate = new Date(startDateVal);
             const billingEndDate = new Date(endDateVal);
             billingStartDate.setHours(0, 0, 0, 0);
@@ -1402,34 +1411,31 @@
             const relevantInventory = state.inventory.filter(item => 
                 item.companyId === companyId && new Date(item.entryDate) <= billingEndDate
             );
-            const uniqueLocations = [...new Set(relevantInventory.map(item => item.locationId))];
             let totalCost = 0;
 
-            const tableRows = uniqueLocations.sort().map(locationId => {
-                const itemsInLocation = relevantInventory.filter(item => item.locationId === locationId);
-                if (itemsInLocation.length === 0) return '';
+            const tableRows = relevantInventory.sort((a,b) => a.sku.localeCompare(b.sku)).map(item => {
+                const itemEntryDate = new Date(item.entryDate);
+                itemEntryDate.setHours(0,0,0,0);
                 
-                const earliestEntryDate = new Date(Math.min(...itemsInLocation.map(item => new Date(item.entryDate))));
-                earliestEntryDate.setHours(0,0,0,0);
-                
-                const chargeStartDate = earliestEntryDate > billingStartDate ? earliestEntryDate : billingStartDate;
+                const chargeStartDate = itemEntryDate > billingStartDate ? itemEntryDate : billingStartDate;
                 
                 if (chargeStartDate > billingEndDate) return '';
                 
                 const cleanBillingEndDate = new Date(endDateVal);
                 const storageDays = Math.max(1, Math.round((cleanBillingEndDate - chargeStartDate) / (1000 * 60 * 60 * 24)) + 1);
 
-                const locationCost = dailyRate * storageDays;
-                totalCost += locationCost;
-                const itemNames = itemsInLocation.map(i => i.name).join(', ');
+                const itemVolume = (item.cbm || 0) * item.quantity;
+                const itemCost = dailyCbmRate * storageDays * itemVolume;
+                totalCost += itemCost;
 
                 return `
                     <tr class="border-b">
-                        <td class="p-2">${locationId}</td>
-                        <td class="p-2">${itemNames}</td>
+                        <td class="p-2">${item.name} (SKU: ${item.sku})</td>
+                        <td class="p-2 text-center">${item.quantity}</td>
+                        <td class="p-2 text-center">${itemVolume.toFixed(3)}</td>
                         <td class="p-2 text-center">${storageDays}</td>
-                        <td class="p-2 text-center">${dailyRate.toFixed(2)}</td>
-                        <td class="p-2 text-left">${locationCost.toFixed(2)}</td>
+                        <td class="p-2 text-center">${(dailyCbmRate * itemVolume).toFixed(2)}</td>
+                        <td class="p-2 text-left">${itemCost.toFixed(2)}</td>
                     </tr>
                 `;
             }).join('');
@@ -1460,8 +1466,9 @@
                         <table class="w-full text-sm">
                             <thead class="bg-slate-100">
                                 <tr class="text-right">
-                                    <th class="p-2 font-semibold">الموقع</th>
-                                    <th class="p-2 font-semibold">تفاصيل الأصناف</th>
+                                    <th class="p-2 font-semibold">الصنف</th>
+                                    <th class="p-2 font-semibold text-center">الكمية</th>
+                                    <th class="p-2 font-semibold text-center">الحجم الإجمالي (م³)</th>
                                     <th class="p-2 font-semibold text-center">أيام التخزين</th>
                                     <th class="p-2 font-semibold text-center">التكلفة/يوم</th>
                                     <th class="p-2 font-semibold text-left">الإجمالي (ر.س)</th>
@@ -1493,24 +1500,30 @@
             window.print();
             printableDiv.innerHTML = '';
         };
+
         window.searchBySku = () => { const skuValue = document.getElementById('sku-search-input').value.trim().toUpperCase(); if (!skuValue) return; const items = state.inventory.filter(i => i.sku === skuValue); if (items.length > 0) { const itemDetails = items.map(item => { const company = state.companies.find(c => c.id === item.companyId); return `<div class="text-right space-y-1 border-b pb-2 mb-2"> <p><strong>الموقع:</strong> ${item.locationId}</p> <p><strong>الشركة:</strong> ${company ? `${company.name}` : 'N/A'}</p> <p><strong>العدد:</strong> ${item.quantity}</p> </div>` }).join(''); showAlert(`تم العثور على SKU: ${skuValue}`, `<div class="max-h-60 overflow-y-auto">${itemDetails}</div>`); } else { showAlert('غير موجود', `لم يتم العثور على أي صنف بالـ SKU: ${skuValue}`); } };
+        
         window.downloadExampleCSV = () => {
             const csvContent = "data:text/csv;charset=utf-8,"
-                + "sku,name,companyName,locationId,quantity,price\n"
-                + "SKU-EX-01,منتج مثال 1,الشركة المتحدة,MAIN-A-01-01-01,50,19.99\n"
-                + "SKU-EX-02,منتج مثال 2,شركة الأمواج,MAIN-A-02-03-10,120,5.50\n";
+                + "sku,name,companyName,locationId,quantity,price,cbm\n"
+                + "SKU-EX-01,منتج مثال 1,الشركة المتحدة,MAIN-A-01-01-01,50,19.99,0.15\n"
+                + "SKU-EX-02,منتج مثال 2,شركة الأمواج,MAIN-A-02-03-10,120,5.50,0.08\n";
 
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "مثال_استيراد_المنتجات.csv");
+            link.setAttribute("download", "مثال_استيراد_المنتجات_CBM.csv");
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         };
-        const handleFileImport = e => { const t = e.target.files[0]; if (!t) return; const o = new FileReader; o.onload = c => { const a = c.target.result, n = a.split("\n").filter(l => l.trim() !== "").slice(1), s = ["sku", "name", "companyName", "locationId", "quantity", "price"]; parsedFileData = n.map(l => { const d = l.split(",").map(p => p.trim()); return s.reduce((p, i, r) => { return p[i] = d[r] || "", p }, {}) }); renderImportPreview(); document.getElementById('import-preview-container').style.display = "block" }; o.readAsText(t) };
-        const renderImportPreview = () => { const e = document.getElementById("import-preview-body"), o = new Set(state.companies.map(c => c.name.toLowerCase())); let c = 0; e.innerHTML = parsedFileData.map(a => { let n = '<span class="text-green-500">✔</span>', s = []; return allLocations.has(a.locationId.toUpperCase()) || s.push("الموقع غير صالح"), o.has(a.companyName.toLowerCase()) || s.push("الشركة غير موجودة"), !a.sku || !a.name || !a.companyName || !a.locationId || !a.quantity || !a.price ? s.push("بيانات ناقصة") : isNaN(Number(a.quantity)) || isNaN(Number(a.price)) && s.push("العدد/السعر غير صحيح"), a.isValid = 0 === s.length, a.isValid ? c++ : n = `<span class="text-red-500" title="${s.join(", ")}">✖</span>`, `<tr class="${a.isValid?"bg-green-50":"bg-red-50"}"><td class="px-4 py-2">${n}</td><td class="px-4 py-2">${a.sku}</td><td class="px-4 py-2">${a.name}</td><td class="px-4 py-2">${a.companyName}</td><td class="px-4 py-2">${a.locationId}</td><td class="px-4 py-2">${a.quantity}</td><td class="px-4 py-2">${a.price}</td></tr>` }).join(""), document.getElementById("valid-rows-count").textContent = c, document.getElementById("confirm-import-button").disabled = 0 === c };
-        window.confirmImport = async () => { const e = document.getElementById("delivery-date").value; if (!e) { showAlert("بيانات ناقصة", "الرجاء تحديد تاريخ الاستلام."); return } const t = parsedFileData.filter(o => o.isValid); if (0 === t.length) { showAlert("لا توجد بيانات صالحة", "لا توجد صفوف صالحة للاستيراد في الملف."); return } const o = new Map(state.companies.map(c => [c.name.toLowerCase(), c.id])), c = writeBatch(db); for (const row of t) { const locationId = row.locationId.toUpperCase(); const sku = row.sku.toUpperCase(); const existingItemQuery = query(collection(db, "inventory-data", userId, "inventory"), where("locationId", "==", locationId), where("sku", "==", sku)); const querySnapshot = await getDocs(existingItemQuery); if (!querySnapshot.empty) { const existingDoc = querySnapshot.docs[0]; const newQuantity = existingDoc.data().quantity + Number(row.quantity); c.update(doc(db, "inventory-data", userId, "inventory", existingDoc.id), { quantity: newQuantity }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: existingDoc.id, itemSku: sku, itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } else { const newItemRef = doc(collection(db, "inventory-data", userId, "inventory")); c.set(newItemRef, { name: row.name, quantity: Number(row.quantity), price: Number(row.price), companyId: o.get(row.companyName.toLowerCase()), entryDate: e, locationId: locationId, sku: sku }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: newItemRef.id, itemSku: sku, itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } } try { await c.commit(); showAlert("نجاح", `تم استيراد ${t.length} صنف بنجاح.`); document.getElementById('import-file-input').value = ""; document.getElementById('import-preview-container').style.display = "none"; closeModal("importModal") } catch (e) { showAlert("خطأ", "فشلت عملية الاستيراد. يرى المحاولة مرة أخرى."); console.error("Import failed:", e) } };
+
+        const handleFileImport = e => { const t = e.target.files[0]; if (!t) return; const o = new FileReader; o.onload = c => { const a = c.target.result, n = a.split("\n").filter(l => l.trim() !== "").slice(1), s = ["sku", "name", "companyName", "locationId", "quantity", "price", "cbm"]; parsedFileData = n.map(l => { const d = l.split(",").map(p => p.trim()); return s.reduce((p, i, r) => { return p[i] = d[r] || "", p }, {}) }); renderImportPreview(); document.getElementById('import-preview-container').style.display = "block" }; o.readAsText(t) };
+        
+        const renderImportPreview = () => { const e = document.getElementById("import-preview-body"), o = new Set(state.companies.map(c => c.name.toLowerCase())); let c = 0; e.innerHTML = parsedFileData.map(a => { let n = '<span class="text-green-500">✔</span>', s = []; return allLocations.has(a.locationId.toUpperCase()) || s.push("الموقع غير صالح"), o.has(a.companyName.toLowerCase()) || s.push("الشركة غير موجودة"), !a.sku || !a.name || !a.companyName || !a.locationId || !a.quantity || !a.price || !a.cbm ? s.push("بيانات ناقصة") : isNaN(Number(a.quantity)) || isNaN(Number(a.price)) || isNaN(Number(a.cbm)) && s.push("العدد/السعر/الحجم غير صحيح"), a.isValid = 0 === s.length, a.isValid ? c++ : n = `<span class="text-red-500" title="${s.join(", ")}">✖</span>`, `<tr class="${a.isValid?"bg-green-50":"bg-red-50"}"><td class="px-4 py-2">${n}</td><td class="px-4 py-2">${a.sku}</td><td class="px-4 py-2">${a.name}</td><td class="px-4 py-2">${a.companyName}</td><td class="px-4 py-2">${a.locationId}</td><td class="px-4 py-2">${a.quantity}</td><td class="px-4 py-2">${a.price}</td><td class="px-4 py-2">${a.cbm}</td></tr>` }).join(""), document.getElementById("valid-rows-count").textContent = c, document.getElementById("confirm-import-button").disabled = 0 === c };
+        
+        window.confirmImport = async () => { const e = document.getElementById("delivery-date").value; if (!e) { showAlert("بيانات ناقصة", "الرجاء تحديد تاريخ الاستلام."); return } const t = parsedFileData.filter(o => o.isValid); if (0 === t.length) { showAlert("لا توجد بيانات صالحة", "لا توجد صفوف صالحة للاستيراد في الملف."); return } const o = new Map(state.companies.map(c => [c.name.toLowerCase(), c.id])), c = writeBatch(db); for (const row of t) { const locationId = row.locationId.toUpperCase(); const sku = row.sku.toUpperCase(); const existingItemQuery = query(collection(db, "inventory-data", userId, "inventory"), where("locationId", "==", locationId), where("sku", "==", sku)); const querySnapshot = await getDocs(existingItemQuery); if (!querySnapshot.empty) { const existingDoc = querySnapshot.docs[0]; const newQuantity = existingDoc.data().quantity + Number(row.quantity); c.update(doc(db, "inventory-data", userId, "inventory", existingDoc.id), { quantity: newQuantity }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: existingDoc.id, itemSku: sku, itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } else { const newItemRef = doc(collection(db, "inventory-data", userId, "inventory")); c.set(newItemRef, { name: row.name, quantity: Number(row.quantity), price: Number(row.price), cbm: Number(row.cbm), companyId: o.get(row.companyName.toLowerCase()), entryDate: e, locationId: locationId, sku: sku }); const transLogRef = doc(collection(db, "inventory-data", userId, "transactions")); c.set(transLogRef, { itemId: newItemRef.id, itemSku: sku, itemName: row.name, type: "add", reason: "استيراد ملف", quantity: Number(row.quantity), timestamp: new Date }); } } try { await c.commit(); showAlert("نجاح", `تم استيراد ${t.length} صنف بنجاح.`); document.getElementById('import-file-input').value = ""; document.getElementById('import-preview-container').style.display = "none"; closeModal("importModal") } catch (e) { showAlert("خطأ", "فشلت عملية الاستيراد. يرى المحاولة مرة أخرى."); console.error("Import failed:", e) } };
+        
         function switchAddTransView(view) {
             const initialStep = document.getElementById('add-trans-initial-step');
             const existingDetails = document.getElementById('add-trans-existing-item-details');
@@ -1537,6 +1550,7 @@
                 errorDiv.classList.add('hidden');
                 document.getElementById('selected-sku-name').textContent = referenceItem.name;
                 document.getElementById('selected-sku-code').textContent = referenceItem.sku;
+                document.getElementById('selected-sku-cbm').textContent = (referenceItem.cbm || 0).toFixed(3);
                 document.getElementById('add-trans-date').valueAsDate = new Date();
                 switchAddTransView('existing');
             } else {
@@ -1557,13 +1571,14 @@
                         name: document.getElementById('new-form-name').value.trim(),
                         companyId: document.getElementById('new-form-company').value,
                         price: Number(document.getElementById('new-form-price').value),
+                        cbm: Number(document.getElementById('new-form-cbm').value),
                         locationId: document.getElementById('new-form-location').value.trim().toUpperCase(),
                         quantity: parseInt(document.getElementById('new-form-quantity').value, 10),
                         entryDate: document.getElementById('new-form-date').value,
                         reason: document.getElementById('new-form-reason').value
                     };
 
-                    if (!newItem.sku || !newItem.name || !newItem.companyId || !newItem.locationId || isNaN(newItem.price) || !newItem.entryDate || isNaN(newItem.quantity) || newItem.quantity <= 0) {
+                    if (!newItem.sku || !newItem.name || !newItem.companyId || !newItem.locationId || isNaN(newItem.price) || isNaN(newItem.cbm) || !newItem.entryDate || isNaN(newItem.quantity) || newItem.quantity <= 0) {
                         throw new Error('الرجاء ملء جميع حقول الصنف الجديد بشكل صحيح.');
                     }
                     if (state.inventory.some(i => i.sku === newItem.sku)) {
@@ -1573,12 +1588,8 @@
                         throw new Error(`الموقع ${newItem.locationId} غير صالح أو غير موجود في إعدادات النظام.`);
                     }
                     
-                    // -- START EDIT: Allow multiple SKUs per location --
-                    // The check that prevented adding a new item to an occupied location has been removed.
-                    // -- END EDIT --
-
                     const newItemRef = await addDoc(collection(db, "inventory-data", userId, "inventory"), {
-                        sku: newItem.sku, name: newItem.name, companyId: newItem.companyId, price: newItem.price,
+                        sku: newItem.sku, name: newItem.name, companyId: newItem.companyId, price: newItem.price, cbm: newItem.cbm,
                         locationId: newItem.locationId, quantity: newItem.quantity, entryDate: newItem.entryDate
                     });
                     await addDoc(collection(db, "inventory-data", userId, "transactions"), {
@@ -1617,12 +1628,9 @@
                         showAlert('نجاح', `تمت إضافة الكمية إلى الموقع ${locationId} بنجاح.`);
 
                     } else {
-                        // -- START EDIT: Allow multiple SKUs per location --
-                        // The check that prevented adding an existing SKU to a location occupied by a different SKU has been removed.
-                        // -- END EDIT --
                         const newItemInNewLocation = {
                             sku: referenceItem.sku, name: referenceItem.name, companyId: referenceItem.companyId,
-                            price: referenceItem.price, locationId: locationId, quantity: quantity, entryDate: entryDate
+                            price: referenceItem.price, cbm: referenceItem.cbm, locationId: locationId, quantity: quantity, entryDate: entryDate
                         };
                         const newItemRef = await addDoc(collection(db, "inventory-data", userId, "inventory"), newItemInNewLocation);
                         await addDoc(collection(db, "inventory-data", userId, "transactions"), {
@@ -1748,7 +1756,7 @@
                         <tr>
                             <th scope="col" class="px-6 py-3">الموقع</th><th scope="col" class="px-6 py-3">SKU</th>
                             <th scope="col" class="px-6 py-3">الصنف</th><th scope="col" class="px-6 py-3">الشركة</th>
-                            <th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th>
+                            <th scope="col" class="px-6 py-3">العدد</th><th scope="col" class="px-6 py-3">الحجم (م³)</th><th scope="col" class="px-6 py-3">تاريخ الإدخال</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1756,7 +1764,7 @@
                             <tr class="bg-white border-b">
                                 <td class="px-6 py-4 font-bold">${item.locationId}</td><td class="px-6 py-4">${item.sku}</td>
                                 <td class="px-6 py-4">${item.name}</td><td class="px-6 py-4">${companyMap.get(item.companyId) || 'N/A'}</td>
-                                <td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${item.entryDate}</td>
+                                <td class="px-6 py-4">${item.quantity}</td><td class="px-6 py-4">${(item.cbm || 0).toFixed(3)}</td><td class="px-6 py-4">${item.entryDate}</td>
                             </tr>
                         `).join('')}
                     </tbody>
